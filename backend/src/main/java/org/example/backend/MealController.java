@@ -13,6 +13,8 @@ public class MealController {
     @Autowired
     private MealService service;
 
+    // Hallo
+
     @GetMapping
     public List<MealRecord> getAllMeals() {
         return service.getAllMeals();
