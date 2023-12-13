@@ -1,4 +1,6 @@
 package org.example.backend;
 
-public interface MealRepo {
+import org.springframework.data.mongodb.repository.MongoRepository;
+public interface MealRepo extends MongoRepository<MealRecord, String> {
+
 }
