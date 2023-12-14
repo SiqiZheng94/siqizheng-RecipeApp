@@ -16,8 +16,6 @@ public class MealController {
     @Autowired
     private final MealService service;
 
-    // Hallo World
-
     @GetMapping
     public List<MealRecord> getAllMeals() {
         return service.getAllMeals();
@@ -33,14 +31,18 @@ public class MealController {
         return service.getMealById(_id);
     }
 
-    @GetMapping("/vegan")
-    public List<MealRecord> getAllVeganMeals() {
-        return service.getAllVeganMeals();
+    @GetMapping("/category/{category}")
+    public List<MealRecord> getMealsByCategory(@PathVariable String category) {
+        return service.getMealsByCategory(category);
     }
 
-    @GetMapping("/random/vegan")
-    public MealRecord getRandomVeganMeal() {
-        return service.getRandomVeganMeal();
+    @GetMapping("category/{category}/random")
+    public MealRecord getRandomMealByCategory(@PathVariable String category) {
+        return service.getRandomMealByCategory(category);
+    }
+    @GetMapping("/letter/{letter}")
+    public List<MealRecord> getMealsByFirstLetter(@PathVariable String letter) {
+        return service.getMealsByFirstLetter(letter);
     }
     @GetMapping("/findByCategory/{category}")
     public List<MealRecord>getMealsByCategories(@PathVariable String category){
