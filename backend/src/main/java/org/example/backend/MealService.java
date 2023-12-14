@@ -28,12 +28,12 @@ public class MealService {
     }
 
     public List<MealRecord> getAllVeganMeals() {
-        return repo.findAllByStrCategory("vegan");
+        return repo.findAllByStrCategoryIgnoreCase("Vegan");
     }
 
 
     public MealRecord getRandomVeganMeal() {
-        List<MealRecord> veganMeals = repo.findAllByStrTagsContaining("vegan");
+        List<MealRecord> veganMeals = repo.findAllByStrCategoryIgnoreCase("Vegan");
         if (!veganMeals.isEmpty()) {
             return veganMeals.get((int) (Math.random() * veganMeals.size()));
         }
