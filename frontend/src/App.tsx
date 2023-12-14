@@ -2,6 +2,8 @@ import {useEffect, useState} from 'react'
 import MealPage from "./MealPage.tsx";
 import {Meal} from "./Meal.ts";
 import axios from "axios";
+import Navbar from "./components/Navbar.tsx";
+import HeroSection from "./components/HeroSection.tsx";
 
 
 
@@ -20,9 +22,13 @@ const fetchData=() =>
         },[]
     )
   return (
-    <>
-      <MealPage meals={meals}/>
-    </>
+      <div className={"App"}>
+          <Navbar/>
+          <div className={"container main"}>
+              <HeroSection/>
+          </div>
+          <MealPage meals={meals}/>
+      </div>
   )
 }
 
