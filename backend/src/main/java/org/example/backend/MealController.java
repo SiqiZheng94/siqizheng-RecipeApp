@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.nio.charset.CharacterCodingException;
 import java.util.List;
 
 @RestController
@@ -32,7 +34,7 @@ public class MealController {
     }
 
     @GetMapping("/category/{category}")
-    public List<MealRecord> getMealsByCategory(@PathVariable String category) {
+    public List<MealRecord> getMealsByCategory(@PathVariable String category) throws CategoryNotFoundException{
         return service.getMealsByCategory(category);
     }
 
@@ -44,8 +46,6 @@ public class MealController {
     public List<MealRecord> getMealsByFirstLetter(@PathVariable String letter) {
         return service.getMealsByFirstLetter(letter);
     }
-    @GetMapping("/findByCategory/{category}")
-    public List<MealRecord>getMealsByCategories(@PathVariable String category){
-        return service.getMealsByCategory(category);}
+
 
     }

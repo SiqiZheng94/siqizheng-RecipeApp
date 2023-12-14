@@ -44,9 +44,10 @@ public class MealService {
         return repo.findAllByStrMealStartingWithIgnoreCase(letter);
     }
 
-    public List <MealRecord> getMealsByCategory(String category){
+    public List <MealRecord> getMealsByCategory(String category) throws CategoryNotFoundException{
         MealCategory mealCategory=MealCategory.fromString(category);
-        return repo.findAllByStrCategory(mealCategory.getCategoryName());
+        return repo.findAllByStrCategory(mealCategory.getCategoryName())
+                .orElseThrow(() ->new CategoryNotFoundException("The category you are searching for is not existing"));
     }
 
 }
