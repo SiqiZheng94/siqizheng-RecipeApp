@@ -1,17 +1,20 @@
 package org.example.backend;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/meals")
+@RequestMapping("/api/meals")
+@RequiredArgsConstructor
 public class MealController {
 
     @Autowired
-    private MealService service;
+    private final MealService service;
 
     @GetMapping
     public List<MealRecord> getAllMeals() {
@@ -28,13 +31,13 @@ public class MealController {
         return service.getMealById(_id);
     }
 
-    @GetMapping("/vegan")
-    public List<MealRecord> getAllVeganMeals() {
-        return service.getAllVeganMeals();
+    @GetMapping("/category/{category}")
+    public List<MealRecord> getMealsByCategory(@PathVariable String category) {
+        return service.getMealsByCategory(category);
     }
 
-    @GetMapping("/random/vegan")
-    public MealRecord getRandomVeganMeal() {
-        return service.getRandomVeganMeal();
+    @GetMapping("category/{category}/random")
+    public MealRecord getRandomMealByCategory(@PathVariable String category) {
+        return service.getRandomMealByCategory(category);
     }
 }
