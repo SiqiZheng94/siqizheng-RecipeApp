@@ -1,6 +1,4 @@
-
 import {useEffect, useState} from 'react'
-import './App.css'
 import MealPage from "./MealPage.tsx";
 import {Meal} from "./Meal.ts";
 import axios from "axios";
