@@ -25,10 +25,6 @@ export default function NavBar() {
             <div className="navbar container">
                 <a href={"#!"} className={"logo"}>Best<span>Recipe</span>App</a>
                 <div className={"nav-links"}>
-                    <div className={"nav-links"}>
-                        <a href={"#!"} className={"active"}>Home</a>
-                        <a href={"#!"}>Recipes</a>
-                    </div>
                     {
                         links.map(link => (
                             <a href="#!" key={link.name}>{link.name}</a>
