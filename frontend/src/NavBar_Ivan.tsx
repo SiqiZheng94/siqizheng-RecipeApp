@@ -1,7 +1,7 @@
 import {useState} from "react";
 import Sidebar from "./Sidebar.tsx";
 
-export default function NavBar() {
+export default function NavBar_Ivan() {
 
     const [showSidebar, setShowSidebar] = useState(false);
     const links= [
