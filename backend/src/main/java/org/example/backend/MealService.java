@@ -34,15 +34,19 @@ public class MealService {
         }
         return null;
     }
-
+/*
     public List<MealRecord> getMealsByCategory(String category) {
         return repo.findAllByStrCategoryIgnoreCase(category);
     }
-
+*/
 
     public List<MealRecord> getMealsByFirstLetter(String letter) {
         return repo.findAllByStrMealStartingWithIgnoreCase(letter);
     }
 
+    public List <MealRecord> getMealsByCategory(String category){
+        MealCategory mealCategory=MealCategory.fromString(category);
+        return repo.findAllByStrCategory(mealCategory.getCategoryName());
+    }
 
 }

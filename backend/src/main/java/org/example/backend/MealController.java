@@ -44,4 +44,8 @@ public class MealController {
     public List<MealRecord> getMealsByFirstLetter(@PathVariable String letter) {
         return service.getMealsByFirstLetter(letter);
     }
-}
+    @GetMapping("/findByCategory/{category}")
+    public List<MealRecord>getMealsByCategories(@PathVariable String category){
+        return service.getMealsByCategory(category);}
+
+    }
