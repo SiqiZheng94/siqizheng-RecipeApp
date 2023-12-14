@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/meals")
+@RequestMapping("/api/meals")
 @RequiredArgsConstructor
 public class MealController {
 
@@ -20,5 +20,25 @@ public class MealController {
     @GetMapping
     public List<MealRecord> getAllMeals() {
         return service.getAllMeals();
+    }
+
+    @GetMapping("/random")
+    public MealRecord getRandomMeal() {
+        return service.getRandomMeal();
+    }
+
+    @GetMapping("/{_id}")
+    public MealRecord getMealById(String _id) {
+        return service.getMealById(_id);
+    }
+
+    @GetMapping("/vegan")
+    public List<MealRecord> getAllVeganMeals() {
+        return service.getAllVeganMeals();
+    }
+
+    @GetMapping("/random/vegan")
+    public MealRecord getRandomVeganMeal() {
+        return service.getRandomVeganMeal();
     }
 }
