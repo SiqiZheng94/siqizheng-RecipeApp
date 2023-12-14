@@ -17,9 +17,12 @@ body {
     width: calc(25% - 90px);
     margin: 20px;
     padding: 20px;
+    overflow: hidden;
 }
 
 .meal-picture {
-    width: calc(100% - 90px - 40px);
-    height: calc(100% - 90px - 40px);
+    width: 100%;
+}
+.meal-introduction {
+    font-size: 2vw;
 }

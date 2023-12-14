@@ -19,7 +19,7 @@ export default function MealPage(props:MealPageProps){
                                         alt={meal.strMeal}
                                     />
                                 )}
-                                <p>{meal.strMeal},{meal.strCategory}</p>
+                                <p className={"meal-introduction"} s>{meal.strMeal}</p>
                             </div>
 
 
