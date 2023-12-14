@@ -38,4 +38,11 @@ public class MealService {
     public List<MealRecord> getMealsByCategory(String category) {
         return repo.findAllByStrCategoryIgnoreCase(category);
     }
+
+
+    public List<MealRecord> getMealsByFirstLetter(String letter) {
+        return repo.findAllByStrMealStartingWithIgnoreCase(letter);
+    }
+
+
 }

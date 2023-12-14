@@ -40,4 +40,8 @@ public class MealController {
     public MealRecord getRandomMealByCategory(@PathVariable String category) {
         return service.getRandomMealByCategory(category);
     }
+    @GetMapping("/letter/{letter}")
+    public List<MealRecord> getMealsByFirstLetter(@PathVariable String letter) {
+        return service.getMealsByFirstLetter(letter);
+    }
 }
