@@ -1,4 +1,4 @@
-@import "partials/navbar.css";
+@import "./partials/navbar.scss";
 
 :root{
     --background-color: #fff;
