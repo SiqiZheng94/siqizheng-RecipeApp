@@ -1,9 +1,9 @@
 import {Meal} from "./Meal.ts";
 
-type MealPageProps={
-    meals:Meal[],
+type MealPageProps = {
+    meals: Meal[],
 }
-export default function MealPage(props:MealPageProps){
+export default function MealPage(props: MealPageProps) {
 
     return (
         <div className={"meal-container"}>
