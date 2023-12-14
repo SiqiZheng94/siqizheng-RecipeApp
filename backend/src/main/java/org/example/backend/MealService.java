@@ -40,4 +40,9 @@ public class MealService {
         return null; // oder eine geeignete Behandlung, falls keine veganen Mahlzeiten gefunden werden
     }
 
+    public List <MealRecord> getMealsByCategory(String category){
+        MealCategory mealCategory=MealCategory.fromString(category);
+        return repo.findAllByStrCategory(mealCategory.getCategoryName());
+    }
+
 }

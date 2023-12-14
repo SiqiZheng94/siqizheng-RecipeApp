@@ -3,6 +3,7 @@ package org.example.backend;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
@@ -41,4 +42,8 @@ public class MealController {
     public MealRecord getRandomVeganMeal() {
         return service.getRandomVeganMeal();
     }
-}
+    @GetMapping("/findByCategory/{category}")
+    public List<MealRecord>getMealsByCategories(@PathVariable String category){
+        return service.getMealsByCategory(category);}
+
+    }
