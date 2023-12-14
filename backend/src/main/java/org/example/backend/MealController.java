@@ -3,8 +3,11 @@ package org.example.backend;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.nio.charset.CharacterCodingException;
 import java.util.List;
 
 @RestController
@@ -14,8 +17,6 @@ public class MealController {
 
     @Autowired
     private final MealService service;
-
-    // Hallo World
 
     @GetMapping
     public List<MealRecord> getAllMeals() {
@@ -32,13 +33,19 @@ public class MealController {
         return service.getMealById(_id);
     }
 
-    @GetMapping("/vegan")
-    public List<MealRecord> getAllVeganMeals() {
-        return service.getAllVeganMeals();
+    @GetMapping("/category/{category}")
+    public List<MealRecord> getMealsByCategory(@PathVariable String category) throws CategoryNotFoundException{
+        return service.getMealsByCategory(category);
     }
 
-    @GetMapping("/random/vegan")
-    public MealRecord getRandomVeganMeal() {
-        return service.getRandomVeganMeal();
+    @GetMapping("category/{category}/random")
+    public MealRecord getRandomMealByCategory(@PathVariable String category) {
+        return service.getRandomMealByCategory(category);
     }
-}
+    @GetMapping("/letter/{letter}")
+    public List<MealRecord> getMealsByFirstLetter(@PathVariable String letter) {
+        return service.getMealsByFirstLetter(letter);
+    }
+
+
+    }

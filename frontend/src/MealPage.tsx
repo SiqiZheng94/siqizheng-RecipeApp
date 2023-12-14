@@ -6,27 +6,19 @@ type MealPageProps={
 export default function MealPage(props:MealPageProps){
 
     return (
-        <>
-            <h1>Welcome to the Meal App</h1>
-            <div  className={"container"}>
-                {props.meals.map((meal:Meal) => (
-
-
-                            <div className={"meal-card"}>
-                                {meal.strMealThumb && (
-                                    <img className={"meal-picture"}
-                                        src={meal.strMealThumb}
-                                        alt={meal.strMeal}
-                                    />
-                                )}
-                                <p>{meal.strMeal},{meal.strCategory}</p>
-                            </div>
-
-
-                    )
-                )}
-            </div>
-
-        </>
+        <div className={"meal-container"}>
+            {props.meals.map((meal: Meal) => (
+                    <div className={"meal-card"} key={meal.idMeal}>
+                        {meal.strMealThumb && (
+                            <img className={"meal-picture"}
+                                 src={meal.strMealThumb}
+                                 alt={meal.strMeal}
+                            />
+                        )}
+                        <p className={"meal-introduction"}>{meal.strMeal}</p>
+                    </div>
+                )
+            )}
+        </div>
     )
 }
