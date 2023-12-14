@@ -10,7 +10,14 @@ export default function MealPage(props:MealPageProps){
             <h1>Welcome to the Meal App</h1>
             <ul>
                 {props.meals.map((meal:Meal) => (
-                    <li key={meal.idMeal}>{meal.strMeal},{meal.strCategory}</li>
+                    <li key={meal.idMeal}>{meal.strMeal},{meal.strCategory}
+                        {meal.strMealThumb && (
+                            <img
+                                src={meal.strMealThumb}
+                                alt={meal.strMeal}
+                                style={{ maxWidth: "100px", maxHeight: "100px" }}
+                            />
+                        )}</li>
                     )
                 )}
             </ul>
