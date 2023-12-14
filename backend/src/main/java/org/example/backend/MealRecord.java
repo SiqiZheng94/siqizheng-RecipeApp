@@ -4,7 +4,7 @@ import lombok.With;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @With
-//@Document("meals")
+@Document("meals")
 public record MealRecord(
 
         String _id,

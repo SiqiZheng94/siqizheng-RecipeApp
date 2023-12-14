@@ -20,3 +20,4 @@
 /frontend/dist
 /frontend/dist-ssr
 /frontend/*.local
+/backend/src/main/java/org/example/backend/json_file/
