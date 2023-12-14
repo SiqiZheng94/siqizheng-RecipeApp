@@ -3,7 +3,7 @@ import MealPage from "./MealPage.tsx";
 import {Meal} from "./Meal.ts";
 import axios from "axios";
 import NavBar from "./NavBar.tsx";
-import "./styles/index.scss";
+import "../../../style/src/index.scss";
 
 
 function App() {
