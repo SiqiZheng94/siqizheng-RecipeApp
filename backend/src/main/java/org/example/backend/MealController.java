@@ -15,7 +15,7 @@ public class MealController {
     @Autowired
     private final MealService service;
 
-    // Hallo
+    // Hallo World
 
     @GetMapping
     public List<MealRecord> getAllMeals() {
