@@ -47,8 +47,12 @@ public class MealController {
         return service.getMealsByFirstLetter(letter);
     }
     @GetMapping("/area/{area}")
-    public List<MealRecord>getMealByArea(@PathVariable String area) throws AreaNotFoundException{
+    public List<MealRecord>getMealsByArea(@PathVariable String area) throws AreaNotFoundException{
         return service.getMealsByArea(area);
+    }
+    @GetMapping("/ingredient/{ingredient}")
+    public List<MealRecord>getMealsByIngredient(@PathVariable String ingredient) throws IngredientNotFoundException{
+        return service.getMealsByIngredient1(ingredient);
     }
 
     }
