@@ -1,4 +1,5 @@
-@import "./partials/navbar.scss";
+@import "navbar.scss";
+/*@import "./partials/mealsByFirstLetterStyle.scss";*/
 
 :root{
     --background-color: #fff;
@@ -16,13 +17,6 @@
     padding: 0;
     box-sizing: border-box;
 }
-
-/*body {*/
-/*    font-size: var(--font-size);*/
-/*    font-family: 'Roboto', sans-serif;*/
-/*    padding-top: 55px;*/
-/*    background-color: var(--background-light);*/
-/*}*/
 
 body {
     font-size: var(--font-size);
@@ -76,8 +70,6 @@ a{
 .meal-introduction {
     font-size: 2vw;
 }
-
-
 
 .main{
     padding-block: 3vw;
