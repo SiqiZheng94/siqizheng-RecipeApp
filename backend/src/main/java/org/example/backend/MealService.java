@@ -57,5 +57,9 @@ public class MealService {
         return repo.findAllByStrAreaIgnoreCase(area)
                 .orElseThrow(()-> new AreaNotFoundException("Area not found exception"));
     }
+    public List <MealRecord> getMealsByIngredient1(String ingredient) throws IngredientNotFoundException {
+        return repo.findAllByStrIngredient1ContainingIgnoreCase(ingredient)
+                .orElseThrow(()->new IngredientNotFoundException("Ingredient not found"));
+    }
 
 }
