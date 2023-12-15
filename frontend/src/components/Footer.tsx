@@ -1,6 +1,8 @@
 function Footer() {
     return (
-        <div></div>
+        <div>
+            <p><p>&copy; 2024 Dein Unternehmen. Alle Rechte vorbehalten.</p></p>
+        </div>
     );
 }
 
