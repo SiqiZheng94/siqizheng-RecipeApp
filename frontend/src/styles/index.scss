@@ -11,7 +11,9 @@
     --font-size: 16px;
     --animation-speed: 1;
 }
-
+@function getAnimationDuration($duration: number) {
+    @return calc($duration * var(--animation-speed));
+}
 *{
     margin: 0;
     padding: 0;
@@ -27,6 +29,10 @@ body {
 
 a{
     text-decoration: none;
+}
+
+img{
+    object-fit: cover;
 }
 
 .btn{
@@ -103,13 +109,31 @@ a{
 }
 
 .section.hero{
+    .typography{
+        padding-right: 1em;
+    }
     .gallery{
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 1.75vw;
+        .custom-image{
+            animation: getAnimationDuration(.5s) popOut forwards;
+
+        }
     }
 }
 
-.customImage{
 
+.custom-image{
+    background-color: red;
+    height: 0;
+    width: 100%;
+    position: relative;
+    img{
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+    }
 }
