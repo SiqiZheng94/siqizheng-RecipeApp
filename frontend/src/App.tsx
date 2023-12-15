@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react'
-import MealPage from "./MealPage.tsx";
+import MealPage from "./components/MealPage.tsx";
 import {Meal} from "./Meal.ts";
 import axios from "axios";
 

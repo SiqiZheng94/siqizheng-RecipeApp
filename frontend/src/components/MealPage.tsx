@@ -1,4 +1,4 @@
-import {Meal} from "./Meal.ts";
+import {Meal} from "../Meal.ts";
 
 type MealPageProps = {
     meals: Meal[],
