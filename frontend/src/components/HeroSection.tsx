@@ -10,7 +10,6 @@ const images = [
     "/img/gallery/img_8.jpg",
     "/img/gallery/img_9.jpg"
 ]
-
 export default function HeroSection(){
     return (
         <div className={"section hero"}>
