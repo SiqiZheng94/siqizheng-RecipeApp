@@ -15,7 +15,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class MealController {
 
-    @Autowired
+//    @Autowired
     private final MealService service;
 
     @GetMapping
@@ -24,14 +24,14 @@ public class MealController {
     }
 
     @GetMapping("/random")
-    public MealRecord getRandomMeal() {
+    public MealRecord getRandomMeal() throws MealNotFoundException{
         return service.getRandomMeal();
     }
-
+/*
     @GetMapping("/{_id}")
-    public MealRecord getMealById(String _id) {
+    public MealRecord getMealById(@PathVariable String _id) {
         return service.getMealById(_id);
-    }
+    }*/
 
     @GetMapping("/category/{category}")
     public List<MealRecord> getMealsByCategory(@PathVariable String category) throws CategoryNotFoundException{
