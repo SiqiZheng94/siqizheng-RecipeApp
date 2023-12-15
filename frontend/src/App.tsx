@@ -10,6 +10,7 @@ import WelcomePage from "./pages/WelcomePage.tsx";
 import MealsByFirstLetter from "./components/MealsByFirstLetter.tsx";
 import {Route, Routes} from "react-router-dom";
 import Footer from "./components/Footer.tsx";
+import CategoryMealPage from "./pages/CategoryMealPage.tsx";
 
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
                     <Routes>
                         <Route path="/" element={<WelcomePage/>}/>
                         <Route path="/meals" element={<MealPage meals={meals}/>}/>
+                        <Route path="/category/Beef" element={<CategoryMealPage/>}/>
                     </Routes>
                 </div>
                 <div className={"container-meals-by-first-litter"}>
