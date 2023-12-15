@@ -30,12 +30,11 @@ public class MealService {
     }*/
 
 
-    public MealRecord getRandomMealByCategory(String category) {
-        List<MealRecord> meals = repo.findAllByStrCategoryIgnoreCase(category);
-        if (!meals.isEmpty()) {
-            return meals.get((int) (Math.random() * meals.size()));
-        }
-        return null;
+    public MealRecord getRandomMealByCategory(String category) throws CategoryNotFoundException{
+        List<MealRecord> meals = repo.findAllByStrCategoryIgnoreCase(category)
+                .orElseThrow(()->new CategoryNotFoundException("No such category found"));
+        return meals.get((int) (Math.random() * meals.size()));
+
     }
 /*
     public List<MealRecord> getMealsByCategory(String category) {
@@ -50,8 +49,13 @@ public class MealService {
     public List <MealRecord> getMealsByCategory(String category) throws CategoryNotFoundException{
         MealCategory mealCategory=MealCategory.fromString(category);
 
-        return repo.findAllByStrCategory(mealCategory.getCategoryName())
+        return repo.findAllByStrCategoryIgnoreCase(mealCategory.getCategoryName())
                 .orElseThrow(() ->new CategoryNotFoundException("The category you are searching for is not existing"));
+    }
+
+    public List <MealRecord> getMealsByArea(String area) throws AreaNotFoundException{
+        return repo.findAllByStrAreaIgnoreCase(area)
+                .orElseThrow(()-> new AreaNotFoundException("Area not found exception"));
     }
 
 }
