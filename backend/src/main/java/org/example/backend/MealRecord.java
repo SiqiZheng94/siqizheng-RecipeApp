@@ -10,7 +10,7 @@ public record MealRecord(
         String _id,
         String idMeal,
         String strMeal,
-        MealCategory strCategory,
+        String strCategory,
         String strArea,
         String strInstructions,
         String strMealThumb,

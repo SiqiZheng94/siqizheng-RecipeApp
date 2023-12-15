@@ -15,7 +15,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class MealController {
 
-    @Autowired
+//    @Autowired
     private final MealService service;
 
     @GetMapping
@@ -29,7 +29,7 @@ public class MealController {
     }
 
     @GetMapping("/{_id}")
-    public MealRecord getMealById(String _id) {
+    public MealRecord getMealById(@PathVariable String _id) {
         return service.getMealById(_id);
     }
 

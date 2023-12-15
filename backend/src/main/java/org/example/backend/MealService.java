@@ -10,7 +10,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class MealService {
 
-    @Autowired
+//    @Autowired
     private final MealRepo repo;
 
     public List<MealRecord> getAllMeals() {

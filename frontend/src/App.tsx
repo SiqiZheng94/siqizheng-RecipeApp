@@ -7,6 +7,8 @@ import "../../../style/src/index.scss";
 
 import Navbar from "./components/Navbar.tsx";
 import HeroSection from "./components/HeroSection.tsx";
+import MealsByFirstLetter from "./components/MealsByFirstLetter.tsx";
+
 
 function App() {
     const [meals, setMeals] = useState<Meal[]>([])
@@ -29,6 +31,7 @@ function App() {
                 <HeroSection/>
             </div>
             <MealPage meals={meals}/>
+            <MealsByFirstLetter/>
         </div>
     )
 }
