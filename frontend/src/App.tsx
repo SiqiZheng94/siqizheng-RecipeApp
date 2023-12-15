@@ -39,18 +39,13 @@ function App() {
                 <div className={"container-meals-by-first-litter"}>
                     <MealsByFirstLetter/>
                 </div>
-                <MealPage meals={meals}/>
+                {/*<MealPage meals={meals}/>*/}
             </main>
             <footer>
                 <div className={"container"}>
                     <Footer/>
                 </div>
             </footer>
-            <Navbar/>
-            <div className={"container main"}>
-                <HeroSection/>
-            </div>
-            <MealsByFirstLetter/>
         </div>
         <Routes>
             <Route path="/meals" element={<MealPage meals={meals}/>}/>
