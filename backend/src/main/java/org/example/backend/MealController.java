@@ -39,13 +39,16 @@ public class MealController {
     }
 
     @GetMapping("category/{category}/random")
-    public MealRecord getRandomMealByCategory(@PathVariable String category) {
+    public MealRecord getRandomMealByCategory(@PathVariable String category) throws CategoryNotFoundException{
         return service.getRandomMealByCategory(category);
     }
     @GetMapping("/letter/{letter}")
     public List<MealRecord> getMealsByFirstLetter(@PathVariable String letter) {
         return service.getMealsByFirstLetter(letter);
     }
-
+    @GetMapping("/area/{area}")
+    public List<MealRecord>getMealByArea(@PathVariable String area) throws AreaNotFoundException{
+        return service.getMealsByArea(area);
+    }
 
     }
