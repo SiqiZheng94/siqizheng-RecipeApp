@@ -3,7 +3,7 @@ import MealPage from "./MealPage.tsx";
 import {Meal} from "./Meal.ts";
 import axios from "axios";
 
-import "../../../style/src/index.scss";
+import "./styles/index.scss";
 
 import Navbar from "./components/Navbar.tsx";
 import HeroSection from "./components/HeroSection.tsx";
