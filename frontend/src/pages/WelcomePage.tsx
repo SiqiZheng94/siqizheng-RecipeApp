@@ -1,4 +1,4 @@
-import CustomImage from "./CustomImage.tsx";
+import CustomImage from "../components/CustomImage.tsx";
 import { useNavigate } from 'react-router-dom';
 
 
@@ -13,7 +13,7 @@ const images = [
     "/img/gallery/img_8.jpg",
     "/img/gallery/img_9.jpg"
 ]
-export default function HeroSection(){
+export default function WelcomePage(){
     const navigate=useNavigate()
     const openMealPage = ()=>{
         navigate("/meals")
