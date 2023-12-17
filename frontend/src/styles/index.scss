@@ -1,9 +1,11 @@
 @import "navbar.scss";
+
+
 /*@import "./partials/mealsByFirstLetterStyle.scss";*/
 
 :root{
     --background-color: #fff;
-    --background-light: #fff;
+    --background-light: beige;
     --shadow-color: rgba(0,0,0,0.2);
     --primary-color: rgb(255, 0, 86);
     --text-color: #0A0A0A;
@@ -11,52 +13,53 @@
     --font-size: 16px;
     --animation-speed: 1;
 }
-
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
 body {
     font-size: var(--font-size);
     font-family: 'Roboto', sans-serif;
-    padding-top: 55px;
+    padding-top: 20px;
     background-color: var(--background-light);
 }
 
-.app {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
+//.app {
+//    display: flex;
+//    flex-direction: column;
+//    min-height: 100vh;
+//}
 
 main {
     flex-grow: 1;
-    padding: 20px;
+    padding: 45px;
 
-    section {
-        margin-bottom: 20px;
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-    }
-    .container-meals-by-first-litter {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        position: relative;
-    }
+    //section {
+    //    margin-bottom: 5px;
+    //    padding: 5px;
+    //    border: 1px solid #ccc;
+    //    border-radius: 5px;
+    //}
+    //.container-meals-by-first-litter {
+    //    display: flex;
+    //    flex-wrap: wrap;
+    //    justify-content: space-between;
+    //    position: relative;
+    //}
 }
+
 footer {
     background-color: #333;
     height: 80px;
     color: #fff;
-    padding: 30px;
-    text-align: center;
     position: fixed;
     bottom: 0;
     width: 100%;
+    .footer {
+        text-align: center;
+        padding: 27px;
+    }
 }
 
 
