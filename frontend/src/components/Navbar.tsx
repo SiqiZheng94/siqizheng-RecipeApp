@@ -1,12 +1,11 @@
 import {useState} from "react";
-
 export default function NavBar() {
 
     const [showSidebar, setShowSidebar] = useState(false);
     const links= [
         {
             name: "Home",
-            path: "/"
+            path: "/home"
         },
         {
             name: "Recipes",
@@ -28,9 +27,11 @@ export default function NavBar() {
                     </div>
                     {
                         links.map(link => (
-                            <a href="#!" key={link.name}>{link.name}</a>
+                            <a href="" key={link.name}>{link.name}</a>
                         ))
                     }
+
+
                     {/*<a href={"#!"}>Home</a>*/}
                     {/*<a href={"#!"}>Recipes</a>*/}
                     {/*<a href={"#!"}>Settings</a>*/}

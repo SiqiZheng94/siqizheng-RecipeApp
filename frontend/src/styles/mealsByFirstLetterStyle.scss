@@ -1,11 +1,50 @@
-div {
+.meal-browser {
   display: flex;
-  justify-content: space-around;
-  padding: 10px;
+  flex-direction: column;
+  align-items: center;
+
+  button {
+    margin: 5px;
+    padding: 10px;
+    cursor: pointer;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+
+    &:hover {
+      background-color: green;
+    }
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+
+    li {
+      margin: 5px;
+      padding: 10px;
+      cursor: pointer;
+      background-color: #2196f3;
+      color: white;
+      border-radius: 5px;
+
+      &:hover {
+        background-color: #0b7dda;
+      }
+    }
+  }
 }
 
-a {
-  text-decoration: none;
-  color: blue;
-  font-size: 18px;
+.meal-letters {
+  margin: 20px;
+}
+
+h2, p, {
+  padding-top: 10px;
+}
+
+img {
+  border: 5px solid burlywood;
+  border-radius: 15px;
 }
