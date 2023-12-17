@@ -15,11 +15,13 @@ import CategoryMealPage from "./pages/CategoryMealPage.tsx";
 
 function App() {
     const [meals, setMeals] = useState<Meal[]>([])
+    const [isLoading, setIsLoading] = useState<boolean>(true)
     const fetchData = () =>
         axios.get("/api/meals")
             .then(response => {
                 setMeals(response.data)
                 console.log(meals)
+                setIsLoading(false)
             })
             .catch(error =>
                 console.log(error.message))
@@ -28,7 +30,6 @@ function App() {
         }, []
     )
     return (
-        <>
         <div className={"App"}>
             <header>
                 <Navbar/>
@@ -38,7 +39,9 @@ function App() {
                     <Routes>
                         <Route path="/" element={<WelcomePage/>}/>
                         <Route path="/meals" element={<MealPage meals={meals}/>}/>
-                        <Route path="/category/Beef" element={<CategoryMealPage/>}/>
+                        <Route path="/category/:category" element={
+                            isLoading ? (<p>Loading...</p>):
+                            <CategoryMealPage meals={meals}/>}/>
                     </Routes>
                 </div>
                 <div className={"container-meals-by-first-litter"}>
@@ -51,7 +54,6 @@ function App() {
                 </div>
             </footer>
         </div>
-        </>
     )
 }
 export default App;
