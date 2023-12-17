@@ -6,7 +6,7 @@ import axios from "axios";
 import "./styles/index.scss";
 
 import Navbar from "./components/Navbar.tsx";
-import WelcomePage from "./pages/WelcomePage.tsx";
+import HomePage from "./pages/HomePage.tsx";
 import MealsByFirstLetter from "./components/MealsByFirstLetter.tsx";
 import {Route, Routes} from "react-router-dom";
 import Footer from "./components/Footer.tsx";
@@ -38,7 +38,7 @@ function App() {
             <main>
                 <div className={"container main"}>
                     <Routes>
-                        <Route path="/" element={<WelcomePage/>}/>
+                        <Route path="/" element={<HomePage/>}/>
                         <Route path="/meals" element={<MealPage meals={meals}/>}/>
                         <Route path="/category/:category" element={
                             isLoading ? (<p>Loading...</p>):

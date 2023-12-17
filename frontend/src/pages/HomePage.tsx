@@ -1,7 +1,7 @@
 import CategoryImage from "../components/CategoryImage.tsx";
 import { useNavigate } from 'react-router-dom';
 
-export default function WelcomePage(){
+export default function HomePage(){
     const navigate=useNavigate()
     const openMealPage = ()=>{
         navigate("/meals")

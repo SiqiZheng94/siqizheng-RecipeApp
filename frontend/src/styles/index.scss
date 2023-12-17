@@ -1,5 +1,7 @@
 @import "navbar.scss";
 @import "homeStyle.scss";
+@import "animations";
+@import "recipeDetails";
 /*@import "./partials/mealsByFirstLetterStyle.scss";*/
 
 :root{
@@ -94,7 +96,7 @@ img{
 .meal-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
 }
 
 .meal-card {
@@ -103,10 +105,14 @@ img{
     align-items: center;
     border: solid 1px #ccc;
     border-radius: 5px;
-    width: calc(25% - 90px);
-    margin: 20px;
-    padding: 20px;
+    width: calc(25% - 20px);
+    height: auto;
+    margin: 10px;
+    padding: 10px;
     overflow: hidden;
+    p{
+        font-size: 1.3vw;
+    }
 }
 
 .meal-picture {
@@ -124,3 +130,11 @@ img{
     padding-inline: 15vw;
 }
 
+div {
+    text-align: center;
+    h1 {
+        font-size: 2.8vw;
+        color: var(--text-light);
+        font-weight: 500;
+    }
+}
