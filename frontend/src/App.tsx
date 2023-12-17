@@ -11,6 +11,7 @@ import MealsByFirstLetter from "./components/MealsByFirstLetter.tsx";
 import {Route, Routes} from "react-router-dom";
 import Footer from "./components/Footer.tsx";
 import CategoryMealPage from "./pages/CategoryMealPage.tsx";
+import RecipeDetailsPage from "./pages/RecipeDetailsPage.tsx";
 
 
 function App() {
@@ -42,6 +43,9 @@ function App() {
                         <Route path="/category/:category" element={
                             isLoading ? (<p>Loading...</p>):
                             <CategoryMealPage meals={meals}/>}/>
+                        <Route path="/recipe/:id" element={
+                            isLoading ? (<p>Loading...</p>):
+                            <RecipeDetailsPage meals={meals}/>}/>
                     </Routes>
                 </div>
                 <div className={"container-meals-by-first-litter"}>

@@ -23,11 +23,11 @@ public class MealService {
         return repo.findAll().get(randomIndex);
 
     }
-/*
+
     //getById
     public MealRecord getMealById(String _id) {
         return repo.findById(_id).orElse(null);
-    }*/
+    }
 
 
     public MealRecord getRandomMealByCategory(String category) throws CategoryNotFoundException{

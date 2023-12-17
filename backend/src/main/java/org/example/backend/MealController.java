@@ -25,11 +25,11 @@ public class MealController {
     public MealRecord getRandomMeal() throws MealNotFoundException{
         return service.getRandomMeal();
     }
-/*
+
     @GetMapping("/{_id}")
     public MealRecord getMealById(@PathVariable String _id) {
         return service.getMealById(_id);
-    }*/
+    }
 
     @GetMapping("/category/{category}")
     public List<MealRecord> getMealsByCategory(@PathVariable String category) throws CategoryNotFoundException{
@@ -56,10 +56,9 @@ public class MealController {
 
     ///////////Siqi/////////////
     @GetMapping("/category/")
-    public List<MealRecord> getMealsByCategoryQuer(@RequestParam String category) throws CategoryNotFoundException{
+    public List<MealRecord> getMealsByCategoryQuery(@RequestParam String category) throws CategoryNotFoundException{
         return service.getMealsByCategory(category);
     }
-
     ////////////Siqi///////////
 
 }
