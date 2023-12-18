@@ -56,4 +56,5 @@ public record MealRecord(
         String strMeasure19,
         String strMeasure20
 )  {
+
 }

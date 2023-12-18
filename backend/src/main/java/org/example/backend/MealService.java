@@ -1,6 +1,7 @@
 package org.example.backend;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -9,7 +10,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class MealService {
 
-   @Autowired
+   /*@Autowired*/
     private final MealRepo repo;
     private final MealCategoryRepo categoryRepo;
 
@@ -72,8 +73,9 @@ public class MealService {
         return repo.save(mealRecord);
     }
 
-    public void deleteMeal(String _id){
+    public void deleteMeal(String _id) {
         repo.deleteById(_id);
+    }
 
     public List <MealCategory> getAllCategories(){
         return categoryRepo.findAll();
@@ -81,3 +83,4 @@ public class MealService {
     }
 
 }
+
