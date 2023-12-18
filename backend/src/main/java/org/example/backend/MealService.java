@@ -1,11 +1,9 @@
 package org.example.backend;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -67,7 +65,8 @@ public class MealService {
         return repo.insert(mealRecord);
     }
 
-    public MealRecord updateMeal(MealRecord mealRecord){
+    public MealRecord updateMeal(String _id, MealRecord mealRecord){
+        mealRecord = mealRecord.with_id(_id);
         return repo.save(mealRecord);
     }
 

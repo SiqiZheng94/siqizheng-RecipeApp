@@ -62,19 +62,19 @@ public class MealController {
     ////////////Siqi///////////
 
 
-    @PostMapping
+    @PostMapping("/add")
     public MealRecord addMeal(@RequestBody MealDto mealDto) {
         MealRecord mealRecord = convertToRecord(mealDto);
         return service.addMeal(mealRecord);
     }
 
-    @PutMapping
-    public MealRecord updateMeal(@RequestBody MealDto mealDto) {
+    @PutMapping("/update/{_id}")
+    public MealRecord updateMeal(@PathVariable String _id, @RequestBody MealDto mealDto) {
         MealRecord mealRecord = convertToRecord(mealDto);
-        return service.updateMeal(mealRecord);
+        return service.updateMeal(_id, mealRecord);
     }
 
-    @DeleteMapping("/{_id}")
+    @DeleteMapping("/delete/{_id}")
     public void deleteMeal(@PathVariable String _id) {
         service.deleteMeal(_id);
     }
