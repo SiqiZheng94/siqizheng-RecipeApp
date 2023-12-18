@@ -1,7 +1,6 @@
 package org.example.backend;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -63,8 +62,22 @@ public class MealService {
                 .orElseThrow(()->new IngredientNotFoundException("Ingredient not found"));
     }
 
+
+    public MealRecord addMeal(MealRecord mealRecord){
+        return repo.insert(mealRecord);
+    }
+
+    public MealRecord updateMeal(String _id, MealRecord mealRecord){
+        mealRecord = mealRecord.with_id(_id);
+        return repo.save(mealRecord);
+    }
+
+    public void deleteMeal(String _id){
+        repo.deleteById(_id);
+
     public List <MealCategory> getAllCategories(){
         return categoryRepo.findAll();
+
     }
 
 }
