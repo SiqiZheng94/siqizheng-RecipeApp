@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -60,6 +61,10 @@ public class MealService {
     public List <MealRecord> getMealsByIngredient1(String ingredient) throws IngredientNotFoundException {
         return repo.findAllByStrIngredient1ContainingIgnoreCase(ingredient)
                 .orElseThrow(()->new IngredientNotFoundException("Ingredient not found"));
+    }
+
+    public MealRecord addMeal(MealRecord mealRecord){
+        return repo.insert(mealRecord);
     }
 
 }
