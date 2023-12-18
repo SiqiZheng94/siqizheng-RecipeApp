@@ -3,12 +3,12 @@ package org.example.backend;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.With;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Arrays;
 
-@Getter
-@AllArgsConstructor
 
+/*
 public enum MealCategory {
     BEEF("Beef"),
     BREAKFAST("Breakfast"),
@@ -30,5 +30,14 @@ public enum MealCategory {
                 .filter(category -> category.getCategoryName().equalsIgnoreCase(categoryString))
                 .findFirst()
                 .orElse(null);
-    }
+    }*/
+@With
+@Document("meal_categories")
+public record MealCategory(
+        String _id,
+        String idCategory,
+        String strCategory
+) {
 }
+
+
