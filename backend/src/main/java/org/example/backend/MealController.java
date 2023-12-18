@@ -68,6 +68,17 @@ public class MealController {
         return service.addMeal(mealRecord);
     }
 
+    @PutMapping
+    public MealRecord updateMeal(@RequestBody MealDto mealDto) {
+        MealRecord mealRecord = convertToRecord(mealDto);
+        return service.updateMeal(mealRecord);
+    }
+
+    @DeleteMapping("/{_id}")
+    public void deleteMeal(@PathVariable String _id) {
+        service.deleteMeal(_id);
+    }
+
     private MealRecord convertToRecord(MealDto mealDto) {
         return new MealRecord(
                 mealDto.getIdMeal() != null ? mealDto.getIdMeal() : "",

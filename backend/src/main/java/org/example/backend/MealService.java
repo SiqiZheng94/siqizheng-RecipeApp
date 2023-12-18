@@ -67,4 +67,12 @@ public class MealService {
         return repo.insert(mealRecord);
     }
 
+    public MealRecord updateMeal(MealRecord mealRecord){
+        return repo.save(mealRecord);
+    }
+
+    public void deleteMeal(String _id){
+        repo.deleteById(_id);
+    }
+
 }
