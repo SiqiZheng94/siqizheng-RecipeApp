@@ -1,8 +1,11 @@
 import "../../src/styles/index.scss";
+import HeroSection from "./HeroSection.tsx";
 function Home() {
+
     return (
         <div>
             <h1>Home</h1>
+            <HeroSection />
             <p>
                 Welcome to <b>Recipe-App, </b>where <b>Sergej, Ivan, Siqi,</b> and <b>Marianna</b> come together to
                 craft an unparalleled
