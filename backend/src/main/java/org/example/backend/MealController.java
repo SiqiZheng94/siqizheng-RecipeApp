@@ -54,12 +54,12 @@ public class MealController {
     }
 
 
-    ///////////Siqi/////////////
-    @GetMapping("/category/")
-    public List<MealRecord> getMealsByCategoryQuery(@RequestParam String category) throws CategoryNotFoundException{
-        return service.getMealsByCategory(category);
-    }
-    ////////////Siqi///////////
+
+//    @GetMapping("/category/")
+//    public List<MealRecord> getMealsByCategoryQuery(@RequestParam String category) throws CategoryNotFoundException{
+//        return service.getMealsByCategory(category);
+//    }
+
     @GetMapping("/categorylist")
     public List <MealCategory> getAllCategories(){
         return service.getAllCategories();
