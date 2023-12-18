@@ -130,5 +130,13 @@ public class MealController {
                 mealDto.getStrMeasure20() != null ? mealDto.getStrMeasure20() : ""
         );
     }
+    @GetMapping("/category")
+    public List <MealRecord> getMealsByCategoryAndFirstLetter(@RequestParam String category,@RequestParam String letter) throws MealNotFoundException{
+        return service.getMealsByCategoryAndFirstLetter(category,letter);
+    }
+    @GetMapping("/area")
+    public List <MealRecord> getMealsByAreaAndFirstLetter(@RequestParam String area,@RequestParam String letter) throws MealNotFoundException{
+        return service.getMealsByAreaAndFirstLetter(area,letter);
+    }
 
 }
