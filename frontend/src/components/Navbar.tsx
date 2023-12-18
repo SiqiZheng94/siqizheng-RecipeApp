@@ -14,7 +14,7 @@ export default function NavBar() {
         },
         {
             name: "Recipes",
-            path: "/recipes",
+            path: "/meals",
             icon: faList
         },
         {

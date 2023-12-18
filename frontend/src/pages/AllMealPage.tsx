@@ -4,7 +4,7 @@ import {useNavigate} from "react-router-dom";
 type MealPageProps = {
     meals: Meal[],
 }
-export default function MealPage(props: MealPageProps) {
+export default function AllMealPage(props: MealPageProps) {
     const navigate = useNavigate()
     return (
         <div className={"meal-container"}>

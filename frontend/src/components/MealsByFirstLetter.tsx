@@ -45,36 +45,28 @@ const MealsByFirstLetter: React.FC = () => {
                 <div className={"meal-letters"}>
                     {letters.map((letter) => (
                         <Link to={`/meals/letter/${letter}`} key={letter}>
-                            <button onClick={() => handleLetterSelected(letter)}>{letter}</button>
+                            {/*<button onClick={() => handleLetterSelected(letter)}>{letter}</button>*/}
+                            <button>{letter}</button>
                         </Link>
                     ))}
                 </div>
-                {selectedLetter && (
-                    <div>
-                        <h2>Meals with letter {selectedLetter}</h2>
-                        <ul>
-                            {meals.map((meal) => (
-                                <Link to={`/recipe/${meal._id}`} key={meal.idMeal}>
-                                    <li key={meal.idMeal} onClick={() => handleMealClick(meal)}>
-                                        <a href={meal.strYoutube}>
-                                            {meal.strMeal}
-                                        </a>
-                                    </li>
-                                </Link>
-                            ))}
-                        </ul>
-                    </div>
-                )}
-                {/*{selectedMeal && (*/}
-                {/*    <div className={"meal-browser"}>*/}
-                {/*        <h2>Details for <strong>{selectedMeal.strMeal}</strong></h2>*/}
-                {/*        <img src={selectedMeal.strMealThumb} alt={selectedMeal.strMeal}/>*/}
-                {/*        <p className={"meal-browser"}><b>Instructions: </b> <br/>{selectedMeal.strInstructions}</p>*/}
-                {/*        <p><b>Category: </b>{selectedMeal.strCategory}</p>*/}
-                {/*        <p><b>Tags: </b> {selectedMeal.strTags}</p>*/}
-                {/*        <p><b>Area: </b> {selectedMeal.strArea}</p>*/}
+                {/*{selectedLetter && (*/}
+                {/*    <div>*/}
+                {/*        <h2>Meals with letter {selectedLetter}</h2>*/}
+                {/*        <ul>*/}
+                {/*            {meals.map((meal) => (*/}
+                {/*                <Link to={`/recipe/${meal._id}`} key={meal.idMeal}>*/}
+                {/*                    <li key={meal.idMeal} onClick={() => handleMealClick(meal)}>*/}
+                {/*                        <a href={meal.strYoutube}>*/}
+                {/*                            {meal.strMeal}*/}
+                {/*                        </a>*/}
+                {/*                    </li>*/}
+                {/*                </Link>*/}
+                {/*            ))}*/}
+                {/*        </ul>*/}
                 {/*    </div>*/}
                 {/*)}*/}
+
             </div>
         </div>
     );
