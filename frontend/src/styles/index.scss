@@ -1,6 +1,7 @@
 @import "navbar.scss";
-
-
+@import "homeStyle.scss";
+@import "animations";
+@import "recipeDetails";
 /*@import "./partials/mealsByFirstLetterStyle.scss";*/
 
 :root{
@@ -13,11 +14,13 @@
     --font-size: 16px;
     --animation-speed: 1;
 }
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
 body {
     font-size: var(--font-size);
     font-family: 'Roboto', sans-serif;
@@ -25,34 +28,35 @@ body {
     background-color: var(--background-light);
 }
 
-//.app {
-//    display: flex;
-//    flex-direction: column;
-//    min-height: 100vh;
-//}
+.app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
 
 main {
     flex-grow: 1;
     padding: 45px;
 
-    //section {
-    //    margin-bottom: 5px;
-    //    padding: 5px;
-    //    border: 1px solid #ccc;
-    //    border-radius: 5px;
-    //}
-    //.container-meals-by-first-litter {
-    //    display: flex;
-    //    flex-wrap: wrap;
-    //    justify-content: space-between;
-    //    position: relative;
-    //}
+    section {
+        margin-bottom: 20px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    .container-meals-by-first-litter {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        position: relative;
+    }
 }
-
 footer {
     background-color: #333;
     height: 80px;
     color: #fff;
+    padding: 30px;
+    text-align: center;
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -96,7 +100,7 @@ img{
 .meal-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
 }
 
 .meal-card {
@@ -105,10 +109,14 @@ img{
     align-items: center;
     border: solid 1px #ccc;
     border-radius: 5px;
-    width: calc(25% - 90px);
-    margin: 20px;
-    padding: 20px;
+    width: calc(25% - 20px);
+    height: auto;
+    margin: 10px;
+    padding: 10px;
     overflow: hidden;
+    p{
+        font-size: 1.3vw;
+    }
 }
 
 .meal-picture {
@@ -126,55 +134,11 @@ img{
     padding-inline: 15vw;
 }
 
-.section {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    margin-bottom: 3vw;
-    .title{
-        color: var(--text-color);
-        font-size: 2.5em;
-        margin-bottom: .25em;
-        font-weight: 900;
-    }
-    .info{
+div {
+    text-align: center;
+    h1 {
+        font-size: 2.8vw;
         color: var(--text-light);
-        font-size: 1em;
-        letter-spacing: 1px;
-        line-height: 1.3;
-        margin-bottom: 1.25em;
-    }
-    .col{
-        width: 50%;
-    }
-}
-
-.section.hero{
-    .typography{
-        padding-right: 1em;
-    }
-    .gallery{
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 1.75vw;
-        .custom-image{
-            animation: getAnimationDuration(.5s) popOut forwards;
-
-        }
-    }
-}
-
-
-.custom-image{
-    background-color: red;
-    height: 0;
-    width: 100%;
-    position: relative;
-    img{
-        position: absolute;
-        height: 100%;
-        width: 100%;
-        top: 0;
-        left: 0;
+        font-weight: 500;
     }
 }

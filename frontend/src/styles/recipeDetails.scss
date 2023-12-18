@@ -1,0 +1,16 @@
+.ingredient-list {
+  display: flex;
+  justify-content: space-between;
+}
+.column {
+  flex-basis: calc(50%);
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  border: 1px solid #ccc;
+  padding: 10px;
+}

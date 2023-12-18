@@ -1,4 +1,5 @@
 export type Meal = {
+    _id:string,
     idMeal: string,
     strMeal: string,
     strDrinkAlternate: string | null,

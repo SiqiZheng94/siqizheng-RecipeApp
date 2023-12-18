@@ -2,13 +2,11 @@ package org.example.backend;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.nio.charset.CharacterCodingException;
 import java.util.List;
+import java.util.Locale;
 
 @RestController
 @RequestMapping("/api/meals")
@@ -27,11 +25,11 @@ public class MealController {
     public MealRecord getRandomMeal() throws MealNotFoundException{
         return service.getRandomMeal();
     }
-/*
+
     @GetMapping("/{_id}")
     public MealRecord getMealById(@PathVariable String _id) {
         return service.getMealById(_id);
-    }*/
+    }
 
     @GetMapping("/category/{category}")
     public List<MealRecord> getMealsByCategory(@PathVariable String category) throws CategoryNotFoundException{
@@ -55,4 +53,12 @@ public class MealController {
         return service.getMealsByIngredient1(ingredient);
     }
 
+
+    ///////////Siqi/////////////
+    @GetMapping("/category/")
+    public List<MealRecord> getMealsByCategoryQuery(@RequestParam String category) throws CategoryNotFoundException{
+        return service.getMealsByCategory(category);
     }
+    ////////////Siqi///////////
+
+}
