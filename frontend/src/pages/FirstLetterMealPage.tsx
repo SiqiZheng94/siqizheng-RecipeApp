@@ -1,4 +1,3 @@
-import MealsByFirstLetter from "../components/MealsByFirstLetter.tsx";
 import {useEffect, useState} from "react";
 import {Meal} from "../Meal.ts";
 import {useNavigate, useParams} from "react-router-dom";
@@ -26,7 +25,8 @@ export default function FirstLetterMealPage(){
 
     return(
         <>
-            {/*{console.log("selectedMeals:", selectedMeals)}*/}
+            {console.log("selectedMeals:", selectedMeals)}
+
             {
                 isLoading ? <p>Loading...</p> : (
                     selectedMeals.length!=0 ?
@@ -47,7 +47,6 @@ export default function FirstLetterMealPage(){
                         :
                         <div>oops, there are no recipes with the first letter {pathLetter}.</div>)
             }
-            <MealsByFirstLetter/>
         </>
 
     )

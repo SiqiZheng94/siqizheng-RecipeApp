@@ -22,9 +22,6 @@ export default function HomePage(){
             <div className={"col2 gallery"}>
                 <CategoryImage/>
             </div>
-            <div>
-                <MealsByFirstLetter/>
-            </div>
         </div>
     )
 }

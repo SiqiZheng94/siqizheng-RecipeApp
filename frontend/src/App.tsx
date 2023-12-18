@@ -52,6 +52,7 @@ function App() {
                     </Routes>
                 </div>
             </main>
+            <MealsByFirstLetter/>
             <footer>
                 <div className={"container"}>
                     <Footer/>
