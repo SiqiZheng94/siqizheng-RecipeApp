@@ -60,5 +60,9 @@ public class MealController {
         return service.getMealsByCategory(category);
     }
     ////////////Siqi///////////
+    @GetMapping("/categorylist")
+    public List <MealCategory> getAllCategories(){
+        return service.getAllCategories();
+    }
 
 }
