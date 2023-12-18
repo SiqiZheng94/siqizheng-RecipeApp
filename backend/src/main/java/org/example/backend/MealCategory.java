@@ -36,7 +36,8 @@ public enum MealCategory {
 public record MealCategory(
         String _id,
         String idCategory,
-        String strCategory
+        String strCategory,
+        String strCategoryThumb
 ) {
 }
 
