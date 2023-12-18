@@ -48,15 +48,23 @@ public class MealService {
     }
 
     public List <MealRecord> getMealsByCategory(String category) throws CategoryNotFoundException{
-        //MealCategory mealCategory=MealCategory.fromString(category);
 
         return repo.findAllByStrCategoryIgnoreCase(category)
                 .orElseThrow(() ->new CategoryNotFoundException("The category you are searching for is not existing"));
+    }
+    public List <MealRecord> getMealsByCategoryAndFirstLetter(String category, String letter) throws MealNotFoundException{
+        return repo.findAllByStrCategoryAndStrMealIsStartingWith(category,letter)
+                .orElseThrow(()-> new MealNotFoundException("No meals found for for category: \" + category + \" and starting letter: \" + letter"));
     }
 
     public List <MealRecord> getMealsByArea(String area) throws AreaNotFoundException{
         return repo.findAllByStrAreaIgnoreCase(area)
                 .orElseThrow(()-> new AreaNotFoundException("Area not found exception"));
+    }
+
+    public List<MealRecord> getMealsByAreaAndFirstLetter(String area,String letter) throws MealNotFoundException{
+        return repo.findAllByStrAreaAndStrMealIsStartingWith(area,letter)
+                .orElseThrow(() ->new MealNotFoundException("No meals found for area: " + area + "and starting letter: "+ letter));
     }
     public List <MealRecord> getMealsByIngredient1(String ingredient) throws IngredientNotFoundException {
         return repo.findAllByStrIngredient1ContainingIgnoreCase(ingredient)

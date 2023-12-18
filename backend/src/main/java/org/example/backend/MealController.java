@@ -64,5 +64,13 @@ public class MealController {
     public List <MealCategory> getAllCategories(){
         return service.getAllCategories();
     }
+    @GetMapping("/category")
+    public List <MealRecord> getMealsByCategoryAndFirstLetter(@RequestParam String category,@RequestParam String letter) throws MealNotFoundException{
+        return service.getMealsByCategoryAndFirstLetter(category,letter);
+    }
+    @GetMapping("/area")
+    public List <MealRecord> getMealsByAreaAndFirstLetter(@RequestParam String area,@RequestParam String letter) throws MealNotFoundException{
+        return service.getMealsByAreaAndFirstLetter(area,letter);
+    }
 
 }
