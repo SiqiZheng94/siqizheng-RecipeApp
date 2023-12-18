@@ -2,6 +2,7 @@
 @import "homeStyle.scss";
 @import "animations";
 @import "recipeDetails";
+@import "mealsByFirstLetterStyle.scss";
 /*@import "./partials/mealsByFirstLetterStyle.scss";*/
 
 :root{
@@ -28,34 +29,33 @@ body {
     background-color: var(--background-light);
 }
 
-.app {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
+//.app {
+//    display: flex;
+//    flex-direction: column;
+//    min-height: 100vh;
+//}
 
 main {
-    flex-grow: 1;
+    //flex-grow: 1;
     padding: 45px;
 
-    section {
-        margin-bottom: 20px;
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-    }
-    .container-meals-by-first-litter {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        position: relative;
-    }
+    //section {
+    //    margin-bottom: 20px;
+    //    padding: 10px;
+    //    border: 1px solid #ccc;
+    //    border-radius: 5px;
+    //}
+    //.container-meals-by-first-litter {
+    //    display: flex;
+    //    flex-wrap: wrap;
+    //    justify-content: space-between;
+    //    position: relative;
+    //}
 }
 footer {
     background-color: #333;
     height: 80px;
     color: #fff;
-    padding: 30px;
     text-align: center;
     position: fixed;
     bottom: 0;

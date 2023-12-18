@@ -8,7 +8,9 @@ import "./styles/index.scss";
 import Navbar from "./components/Navbar.tsx";
 import HomePage from "./pages/HomePage.tsx";
 import MealsByFirstLetter from "./components/MealsByFirstLetter.tsx";
-
+import Home from "./components/Home.tsx";
+import Recipes from "./components/Recipes.tsx";
+import Settings from "./components/Settings.tsx";
 import {Route, Routes} from "react-router-dom";
 import Footer from "./components/Footer.tsx";
 import CategoryMealPage from "./pages/CategoryMealPage.tsx";
@@ -39,9 +41,7 @@ function App() {
             <main>
                 <div className={"container main"}>
                     <Routes>
-                        <Route path="/" element={
-                            // isLoading ? (<p>Loading...</p>):
-                            <HomePage/>}/>
+                        <Route path="/home" element={<HomePage/>}/>
                         <Route path="/meals" element={<MealPage meals={meals}/>}/>
                         <Route path="/category/:category" element={
                             isLoading ? (<p>Loading...</p>):
@@ -49,6 +49,7 @@ function App() {
                         <Route path="/recipe/:id" element={
                             isLoading ? (<p>Loading...</p>):
                             <RecipeDetailsPage meals={meals}/>}/>
+                        <Route path="/meals/letter" element={<MealsByFirstLetter/>}/>
                     </Routes>
                 </div>
                 <div className={"container-meals-by-first-litter"}>
