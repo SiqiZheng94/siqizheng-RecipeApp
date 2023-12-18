@@ -65,16 +65,16 @@ const MealsByFirstLetter: React.FC = () => {
                         </ul>
                     </div>
                 )}
-                {selectedMeal && (
-                    <div className={"meal-browser"}>
-                        <h2>Details for <strong>{selectedMeal.strMeal}</strong></h2>
-                        <img src={selectedMeal.strMealThumb} alt={selectedMeal.strMeal}/>
-                        <p className={"meal-browser"}><b>Instructions: </b> <br/>{selectedMeal.strInstructions}</p>
-                        <p><b>Category: </b>{selectedMeal.strCategory}</p>
-                        <p><b>Tags: </b> {selectedMeal.strTags}</p>
-                        <p><b>Area: </b> {selectedMeal.strArea}</p>
-                    </div>
-                )}
+                {/*{selectedMeal && (*/}
+                {/*    <div className={"meal-browser"}>*/}
+                {/*        <h2>Details for <strong>{selectedMeal.strMeal}</strong></h2>*/}
+                {/*        <img src={selectedMeal.strMealThumb} alt={selectedMeal.strMeal}/>*/}
+                {/*        <p className={"meal-browser"}><b>Instructions: </b> <br/>{selectedMeal.strInstructions}</p>*/}
+                {/*        <p><b>Category: </b>{selectedMeal.strCategory}</p>*/}
+                {/*        <p><b>Tags: </b> {selectedMeal.strTags}</p>*/}
+                {/*        <p><b>Area: </b> {selectedMeal.strArea}</p>*/}
+                {/*    </div>*/}
+                {/*)}*/}
             </div>
         </div>
     );
