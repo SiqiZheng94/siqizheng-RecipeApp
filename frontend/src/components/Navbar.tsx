@@ -2,7 +2,6 @@ import {useState} from "react";
 import Sidebar from "./Sidebar.tsx";
 import {faHome, faList, faCog } from "@fortawesome/free-solid-svg-icons";
 import {Link , useLocation} from "react-router-dom";
-
 export default function NavBar() {
 
     const [showSidebar, setShowSidebar] = useState(false);

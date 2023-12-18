@@ -9,8 +9,9 @@ import java.util.List;
 @RequiredArgsConstructor
 public class MealService {
 
-//    @Autowired
+   @Autowired
     private final MealRepo repo;
+    private final MealCategoryRepo categoryRepo;
 
     public List<MealRecord> getAllMeals() {
         return repo.findAll();
@@ -46,9 +47,9 @@ public class MealService {
     }
 
     public List <MealRecord> getMealsByCategory(String category) throws CategoryNotFoundException{
-        MealCategory mealCategory=MealCategory.fromString(category);
+        //MealCategory mealCategory=MealCategory.fromString(category);
 
-        return repo.findAllByStrCategoryIgnoreCase(mealCategory.getCategoryName())
+        return repo.findAllByStrCategoryIgnoreCase(category)
                 .orElseThrow(() ->new CategoryNotFoundException("The category you are searching for is not existing"));
     }
 
@@ -61,6 +62,7 @@ public class MealService {
                 .orElseThrow(()->new IngredientNotFoundException("Ingredient not found"));
     }
 
+
     public MealRecord addMeal(MealRecord mealRecord){
         return repo.insert(mealRecord);
     }
@@ -72,6 +74,10 @@ public class MealService {
 
     public void deleteMeal(String _id){
         repo.deleteById(_id);
+
+    public List <MealCategory> getAllCategories(){
+        return categoryRepo.findAll();
+
     }
 
 }
