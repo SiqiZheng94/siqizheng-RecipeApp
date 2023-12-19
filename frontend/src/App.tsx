@@ -39,7 +39,7 @@ function App() {
             <main>
                 <div className={"container main"}>
                     <Routes>
-                        <Route path="/home" element={<HomePage/>}/>
+                        <Route path="/" element={<HomePage/>}/>
                         <Route path="/meals" element={<AllMealPage meals={meals}/>}/>
                         <Route path="/category/:category" element={
                             isLoading ? (<p>Loading...</p>):

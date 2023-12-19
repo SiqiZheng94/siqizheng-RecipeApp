@@ -9,7 +9,7 @@ export default function NavBar() {
     const links= [
         {
             name: "Home",
-            path: "/home",
+            path: "/",
             icon: faHome
         },
         {
@@ -27,7 +27,7 @@ export default function NavBar() {
     return (
         <>
             <div className="navbar container">
-                <a href={"#!"} className={"logo"}>Best<span>Recipe</span>App</a>
+                <a href={"/"} className={"logo"}>Best<span>Recipe</span>App</a>
                 <div className={"nav-links"}>
                     <div className={"nav-links"}>
                     </div>

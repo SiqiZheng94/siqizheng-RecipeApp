@@ -1,6 +1,5 @@
 import CategoryImage from "../components/CategoryImage.tsx";
 import {useNavigate} from 'react-router-dom';
-import MealsByFirstLetter from "../components/MealsByFirstLetter.tsx";
 
 
 export default function HomePage(){
