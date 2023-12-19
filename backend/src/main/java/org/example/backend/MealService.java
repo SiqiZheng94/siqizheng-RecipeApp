@@ -76,8 +76,7 @@ public class MealService {
         return repo.insert(mealRecord);
     }
 
-    public MealRecord updateMeal(String _id, MealRecord mealRecord){
-        mealRecord = mealRecord.with_id(_id);
+    public MealRecord updateMeal( MealRecord mealRecord){
         return repo.save(mealRecord);
     }
 
