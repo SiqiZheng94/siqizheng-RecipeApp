@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import { Meal } from '../Meal';
 import '../styles/searchBar.scss';
@@ -10,27 +10,27 @@ type SearchBarProps = {
 export default function SearchBar({ setMeals }: SearchBarProps) {
     const [input, setInput] = useState('');
 
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        fetchMeals();
-    };
-
-    const fetchMeals = () => {
+    const fetchMeals = useCallback(() => {
         const endpoint = input ? `/api/meals/name/${input}` : '/api/meals';
         axios.get(endpoint)
             .then(response => {
                 setMeals(response.data);
             })
             .catch(error => console.log(error.message));
-    };
+    }, [input, setMeals]);
 
-    const clearInput = () => {
-        setInput('');
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        fetchMeals();
     };
 
     useEffect(() => {
         fetchMeals();
-    }, [input]);
+    }, [fetchMeals]);
+
+    const clearInput = () => {
+        setInput('');
+    };
 
     return (
         <form className="search-bar" onSubmit={handleSubmit}>
