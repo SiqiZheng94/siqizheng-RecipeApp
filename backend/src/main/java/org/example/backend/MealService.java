@@ -10,7 +10,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class MealService {
 
-   /*@Autowired*/
     private final MealRepo repo;
     private final MealCategoryRepo categoryRepo;
 
@@ -19,13 +18,12 @@ public class MealService {
     }
 
     public MealRecord getRandomMeal(){
-        //return repo.findAll().get((int) (Math.random() * repo.findAll().size()));
         int randomIndex=(int)(Math.random()* repo.count());
         return repo.findAll().get(randomIndex);
 
     }
 
-    //getById
+
     public MealRecord getMealById(String _id) {
         return repo.findById(_id).orElse(null);
     }
@@ -48,7 +46,6 @@ public class MealService {
     }
 
     public List <MealRecord> getMealsByCategory(String category) throws CategoryNotFoundException{
-
         return repo.findAllByStrCategoryIgnoreCase(category)
                 .orElseThrow(() ->new CategoryNotFoundException("The category you are searching for is not existing"));
     }
@@ -90,5 +87,8 @@ public class MealService {
 
     }
 
+    public List<MealRecord> getMealsByName(String name) {
+        return repo.findAllByStrMealContainingIgnoreCase(name);
+    }
 }
 
