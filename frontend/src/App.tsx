@@ -12,7 +12,11 @@ import {Route, Routes} from "react-router-dom";
 import Footer from "./components/Footer.tsx";
 import CategoryMealPage from "./pages/CategoryMealPage.tsx";
 import RecipeDetailsPage from "./pages/RecipeDetailsPage.tsx";
+
 import FirstLetterMealPage from "./pages/FirstLetterMealPage.tsx";
+
+import AddRecipe from "./components/AddRecipe.tsx";
+
 
 
 function App() {
@@ -31,6 +35,7 @@ function App() {
             fetchData()
         }, []
     )
+
     return (
         <div className={"App"}>
             <header>
@@ -40,15 +45,22 @@ function App() {
                 <div className={"container main"}>
                     <Routes>
                         <Route path="/" element={<HomePage/>}/>
+
                         <Route path="/meals" element={<AllMealPage meals={meals}/>}/>
+
+                        <Route path="/add-recipe" element={<AddRecipe/>}/>
+                        
                         <Route path="/category/:category" element={
-                            isLoading ? (<p>Loading...</p>):
-                            <CategoryMealPage meals={meals}/>}/>
+                            isLoading ? (<p>Loading...</p>) :
+                                <CategoryMealPage meals={meals}/>}/>
                         <Route path="/recipe/:id" element={
+
                             isLoading ? (<p>Loading...</p>):
                             <RecipeDetailsPage meals={meals}/>}/>
                         <Route path="/meals/letter/:letter" element={
                             <FirstLetterMealPage/>}/>
+
+                          
                     </Routes>
                 </div>
             </main>
@@ -61,4 +73,5 @@ function App() {
         </div>
     )
 }
+
 export default App;

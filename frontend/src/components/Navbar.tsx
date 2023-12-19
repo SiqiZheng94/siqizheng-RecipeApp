@@ -18,8 +18,8 @@ export default function NavBar() {
             icon: faList
         },
         {
-            name: "Settings",
-            path: "/settings",
+            name: "Add-Recipe",
+            path: "/add-recipe",
             icon: faCog
         }
     ]
