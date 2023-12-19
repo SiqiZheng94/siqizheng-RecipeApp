@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react'
-import MealPage from "./pages/MealPage.tsx";
+import AllMealPage from "./pages/AllMealPage.tsx";
 import {Meal} from "./Meal.ts";
 import axios from "axios";
 
@@ -12,7 +12,11 @@ import {Route, Routes} from "react-router-dom";
 import Footer from "./components/Footer.tsx";
 import CategoryMealPage from "./pages/CategoryMealPage.tsx";
 import RecipeDetailsPage from "./pages/RecipeDetailsPage.tsx";
+
+import FirstLetterMealPage from "./pages/FirstLetterMealPage.tsx";
+
 import AddRecipe from "./components/AddRecipe.tsx";
+
 
 
 function App() {
@@ -41,18 +45,26 @@ function App() {
                 <div className={"container main"}>
                     <Routes>
                         <Route path="/" element={<HomePage/>}/>
+
+                        <Route path="/meals" element={<AllMealPage meals={meals}/>}/>
+
                         <Route path="/add-recipe" element={<AddRecipe/>}/>
-                        <Route path="/meals" element={<MealPage meals={meals}/>}/>
+                        
                         <Route path="/category/:category" element={
                             isLoading ? (<p>Loading...</p>) :
                                 <CategoryMealPage meals={meals}/>}/>
                         <Route path="/recipe/:id" element={
-                            isLoading ? (<p>Loading...</p>) :
-                                <RecipeDetailsPage meals={meals}/>}/>
-                        <Route path="/meals/letter/:letters" element={<MealsByFirstLetter/>}/>
+
+                            isLoading ? (<p>Loading...</p>):
+                            <RecipeDetailsPage meals={meals}/>}/>
+                        <Route path="/meals/letter/:letter" element={
+                            <FirstLetterMealPage/>}/>
+
+                          
                     </Routes>
                 </div>
             </main>
+            <MealsByFirstLetter/>
             <footer>
                 <div className={"container"}>
                     <Footer/>
