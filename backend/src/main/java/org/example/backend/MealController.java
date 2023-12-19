@@ -70,7 +70,7 @@ public class MealController {
     @PutMapping("/update/{_id}")
     public MealRecord updateMeal(@PathVariable String _id, @RequestBody MealDto mealDto) {
         MealRecord mealRecord = convertToRecord(mealDto);
-        return service.updateMeal(_id, mealRecord);
+        return service.updateMeal(mealRecord);
     }
 
     @DeleteMapping("/delete/{_id}")
@@ -80,7 +80,7 @@ public class MealController {
 
     private MealRecord convertToRecord(MealDto mealDto) {
         return new MealRecord(
-                mealDto.getIdMeal() != null ? mealDto.getIdMeal() : "",
+                mealDto.get_id() != null ? mealDto.get_id() : "",
                 mealDto.getIdMeal() != null ? mealDto.getIdMeal() : "",
                 mealDto.getStrMeal() != null ? mealDto.getStrMeal() : "",
                 mealDto.getStrCategory() != null ? mealDto.getStrCategory() : "",
