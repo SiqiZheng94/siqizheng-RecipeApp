@@ -3,7 +3,6 @@ import axios from 'axios';
 import '../styles/addRecipe.scss';
 
 interface FormValues {
-    // idMeal: string;
     strMeal: string;
     strCategory?: string;
     strMealThumb: string;
@@ -18,7 +17,6 @@ interface FormValues {
 
 const AddRecipes: React.FC = () => {
     const [formData, setFormData] = useState<FormValues>({
-        // idMeal: '',
         strMeal: '',
         strCategory: '',
         strMealThumb: '',
@@ -47,7 +45,6 @@ const AddRecipes: React.FC = () => {
             // Sende Daten an das Backend
             const response = await axios.post("/api/meals/add", formData);
             setFormData({
-                // idMeal: '',
                 strMeal: '',
                 strCategory: '',
                 strMealThumb: '',
@@ -70,26 +67,6 @@ const AddRecipes: React.FC = () => {
             <form>
                 <h2>Add your own recipe</h2>
                 <br/>
-                {/*<label htmlFor="idMeal">Your Name:</label>*/}
-                {/*<input*/}
-                {/*    type="text"*/}
-                {/*    id="idMeal"*/}
-                {/*    name="_id"*/}
-                {/*    value={formData._id}*/}
-                {/*    onChange={handleInputChange}*/}
-                {/*    placeholder={"Your Name required..."}*/}
-                {/*    required*/}
-                {/*/>*/}
-                {/*<label htmlFor="idMeal">Your Name:</label>*/}
-                {/*<input*/}
-                {/*    type="text"*/}
-                {/*    id="idMeal"*/}
-                {/*    name="idMeal"*/}
-                {/*    value={formData.idMeal}*/}
-                {/*    onChange={handleInputChange}*/}
-                {/*    placeholder={"Your Name required..."}*/}
-                {/*    required*/}
-                {/*/>*/}
                 <label htmlFor="strMeal">Meal Name:</label>
                 <input
                     type="text"
