@@ -16,6 +16,7 @@ import RecipeDetailsPage from "./pages/RecipeDetailsPage.tsx";
 import FirstLetterMealPage from "./pages/FirstLetterMealPage.tsx";
 
 import AddRecipe from "./components/AddRecipe.tsx";
+import RecipeEditPage from "./pages/RecipeEditPage.tsx";
 
 
 
@@ -53,9 +54,11 @@ function App() {
                             isLoading ? (<p>Loading...</p>) :
                                 <CategoryMealPage meals={meals}/>}/>
                         <Route path="/recipe/:id" element={
-
                             isLoading ? (<p>Loading...</p>):
                             <RecipeDetailsPage meals={meals}/>}/>
+                        <Route path="/recipe/edit/:id" element={
+                            isLoading ? (<p>Loading...</p>):
+                                <RecipeEditPage meals={meals}/>}/>
                         <Route path="/meals/letter/:letter" element={
                             <FirstLetterMealPage/>}/>
                     </Routes>

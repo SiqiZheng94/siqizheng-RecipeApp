@@ -12,14 +12,10 @@ type MealPageProps = {
 export default function AllMealPage(props: MealPageProps) {
     const navigate = useNavigate()
     const [meals, setMeals] = useState(props.meals);
-    const [manage, setManage] = useState<boolean>(false)
+    const [manage, setManage] = useState<boolean>(true)
 
     function changeManageState() {
-        if (!manage){
-            setManage(true)
-        } else {
-            setManage(false)
-        }
+        setManage(!manage)
     }
     function deleteThisItem(id:string){
         // Optimistic UI update: Remove the meal from the local state
@@ -51,7 +47,7 @@ export default function AllMealPage(props: MealPageProps) {
                             )}
                             {manage &&
                             <div className={"two-buttons"}>
-                                <button><span>Edit</span></button>
+                                <button onClick={()=>navigate("/recipe/edit/"+meal._id)}><span>Edit</span></button>
                                 <button onClick={()=>deleteThisItem(meal._id)}><span>Delete</span></button>
                             </div>}
                             <p className={"meal-introduction"}>{meal.strMeal}</p>
