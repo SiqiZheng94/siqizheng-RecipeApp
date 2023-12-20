@@ -3,11 +3,10 @@ import axios from 'axios';
 import '../styles/addRecipe.scss';
 
 interface FormValues {
-    _id?: string;
-    idMeal: string;
+    // idMeal: string;
     strMeal: string;
     strCategory?: string;
-    strMealThumb: File | null;
+    strMealThumb: string;
     strInstructions: string;
     strIngredient1: string;
     strMeasure1: string,
@@ -19,10 +18,10 @@ interface FormValues {
 
 const AddRecipes: React.FC = () => {
     const [formData, setFormData] = useState<FormValues>({
-        idMeal: '',
+        // idMeal: '',
         strMeal: '',
         strCategory: '',
-        strMealThumb: null,
+        strMealThumb: '',
         strInstructions: '',
         strIngredient1: '',
         strMeasure1: '',
@@ -48,10 +47,10 @@ const AddRecipes: React.FC = () => {
             // Sende Daten an das Backend
             const response = await axios.post("/api/meals/add", formData);
             setFormData({
-                idMeal: '',
+                // idMeal: '',
                 strMeal: '',
                 strCategory: '',
-                strMealThumb: null,
+                strMealThumb: '',
                 strInstructions: '',
                 strIngredient1: '',
                 strMeasure1: '',
@@ -71,16 +70,26 @@ const AddRecipes: React.FC = () => {
             <form>
                 <h2>Add your own recipe</h2>
                 <br/>
-                <label htmlFor="idMeal">Your Name:</label>
-                <input
-                    type="text"
-                    id="idMeal"
-                    name="idMeal"
-                    value={formData.idMeal}
-                    onChange={handleInputChange}
-                    placeholder={"Your Name required..."}
-                    required
-                />
+                {/*<label htmlFor="idMeal">Your Name:</label>*/}
+                {/*<input*/}
+                {/*    type="text"*/}
+                {/*    id="idMeal"*/}
+                {/*    name="_id"*/}
+                {/*    value={formData._id}*/}
+                {/*    onChange={handleInputChange}*/}
+                {/*    placeholder={"Your Name required..."}*/}
+                {/*    required*/}
+                {/*/>*/}
+                {/*<label htmlFor="idMeal">Your Name:</label>*/}
+                {/*<input*/}
+                {/*    type="text"*/}
+                {/*    id="idMeal"*/}
+                {/*    name="idMeal"*/}
+                {/*    value={formData.idMeal}*/}
+                {/*    onChange={handleInputChange}*/}
+                {/*    placeholder={"Your Name required..."}*/}
+                {/*    required*/}
+                {/*/>*/}
                 <label htmlFor="strMeal">Meal Name:</label>
                 <input
                     type="text"
@@ -168,15 +177,15 @@ const AddRecipes: React.FC = () => {
                     onChange={handleInputChange}
                     placeholder={"Measure3 optional..."}
                 />
-                <label htmlFor="strMealThumb">Meal Image:</label>
+                <label htmlFor="strMealThumb">Meal link Image:</label>
                 <input
-                    type="file"
+                    type="text"
                     id="strMealThumb"
                     name="strMealThumb"
-                    accept="image/*"
-                    // value={formData.strMealThumb}
+                    // accept="image/*"
+                    value={formData.strMealThumb}
                     onChange={handleInputChange}
-                    placeholder={"Meal Image optional..."}
+                    placeholder={"Meal link Image optional..."}
                 />
                 <br/>
                 <button type="button" onClick={handleSubmit}>
