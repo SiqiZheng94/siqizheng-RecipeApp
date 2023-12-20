@@ -45,7 +45,7 @@ function App() {
                 <div className={"container main"}>
                     <Routes>
                         <Route path="/" element={<HomePage/>}/>
-                        <Route path="/meals" element={<AllMealPage meals={meals}/>}/>
+                        <Route path="/meals" element={<AllMealPage meals={meals} getMeals={fetchData}/>}/>
 
                         <Route path="/add-recipe" element={<AddRecipe/>}/>
 
