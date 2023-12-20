@@ -1,5 +1,4 @@
 import {useState} from "react";
-import Sidebar from "./Sidebar.tsx";
 import {faHome, faList, faCog } from "@fortawesome/free-solid-svg-icons";
 import {Link , useLocation} from "react-router-dom";
 export default function NavBar() {
@@ -44,7 +43,6 @@ export default function NavBar() {
                     <div className={"bar"}></div>
                 </div>
             </div>
-            <Sidebar links={links} />
         </>
     );
 }
