@@ -13,7 +13,6 @@ import java.util.Locale;
 @RequiredArgsConstructor
 public class MealController {
 
-//    @Autowired
     private final MealService service;
 
     @GetMapping
@@ -29,6 +28,11 @@ public class MealController {
     @GetMapping("/{_id}")
     public MealRecord getMealById(@PathVariable String _id) {
         return service.getMealById(_id);
+    }
+
+    @GetMapping("/name/{name}")
+    public List<MealRecord> getMealsByName(@PathVariable String name) {
+        return service.getMealsByName(name);
     }
 
     @GetMapping("/category/{category}")
