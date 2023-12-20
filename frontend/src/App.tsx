@@ -45,11 +45,10 @@ function App() {
                 <div className={"container main"}>
                     <Routes>
                         <Route path="/" element={<HomePage/>}/>
-
                         <Route path="/meals" element={<AllMealPage meals={meals}/>}/>
 
                         <Route path="/add-recipe" element={<AddRecipe/>}/>
-                        
+
                         <Route path="/category/:category" element={
                             isLoading ? (<p>Loading...</p>) :
                                 <CategoryMealPage meals={meals}/>}/>
@@ -59,8 +58,6 @@ function App() {
                             <RecipeDetailsPage meals={meals}/>}/>
                         <Route path="/meals/letter/:letter" element={
                             <FirstLetterMealPage/>}/>
-
-                          
                     </Routes>
                 </div>
             </main>
