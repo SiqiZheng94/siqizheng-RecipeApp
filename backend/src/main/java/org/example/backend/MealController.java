@@ -25,9 +25,9 @@ public class MealController {
         return service.getRandomMeal();
     }
 
-    @GetMapping("/{_id}")
-    public MealRecord getMealById(@PathVariable String _id) {
-        return service.getMealById(_id);
+    @GetMapping("/{id}")
+    public MealRecord getMealById(@PathVariable String id) {
+        return service.getMealById(id);
     }
 
     @GetMapping("/name/{name}")
@@ -71,21 +71,20 @@ public class MealController {
         return service.addMeal(mealRecord);
     }
 
-    @PutMapping("/update/{_id}")
-    public MealRecord updateMeal(@PathVariable String _id, @RequestBody MealDto mealDto) {
+    @PutMapping("/update/{id}")
+    public MealRecord updateMeal(@PathVariable String id, @RequestBody MealDto mealDto) {
         MealRecord mealRecord = convertToRecord(mealDto);
         return service.updateMeal(mealRecord);
     }
 
-    @DeleteMapping("/delete/{_id}")
-    public void deleteMeal(@PathVariable String _id) {
-        service.deleteMeal(_id);
+    @DeleteMapping("/delete/{id}")
+    public void deleteMeal(@PathVariable String id) {
+        service.deleteMeal(id);
     }
 
     private MealRecord convertToRecord(MealDto mealDto) {
         return new MealRecord(
-                mealDto.get_id() != null ? mealDto.get_id() : "",
-                mealDto.getIdMeal() != null ? mealDto.getIdMeal() : "",
+                null,
                 mealDto.getStrMeal() != null ? mealDto.getStrMeal() : "",
                 mealDto.getStrCategory() != null ? mealDto.getStrCategory() : "",
                 mealDto.getStrArea() != null ? mealDto.getStrArea() : "",

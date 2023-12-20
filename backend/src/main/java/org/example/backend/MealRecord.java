@@ -8,7 +8,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public record MealRecord(
 
         String _id,
-        String idMeal,
         String strMeal,
         String strCategory,
         String strArea,

@@ -24,8 +24,8 @@ public class MealService {
     }
 
 
-    public MealRecord getMealById(String _id) {
-        return repo.findById(_id).orElse(null);
+    public MealRecord getMealById(String id) {
+        return repo.findById(id).orElse(null);
     }
 
 
@@ -77,8 +77,8 @@ public class MealService {
         return repo.save(mealRecord);
     }
 
-    public void deleteMeal(String _id) {
-        repo.deleteById(_id);
+    public void deleteMeal(String id) {
+        repo.deleteById(id);
     }
 
     public List <MealCategory> getAllCategories(){
