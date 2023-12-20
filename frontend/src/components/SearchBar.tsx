@@ -34,8 +34,8 @@ export default function SearchBar({ setMeals }: SearchBarProps) {
 
     return (
         <form className="search-bar" onSubmit={handleSubmit}>
-            <input type="text" value={input} onChange={(e) => setInput(e.target.value)} placeholder="Find your favorite meal 🔎" />
-            {input && <button type="button" onClick={clearInput}>Clear</button>}
+            <input type="text" className="search-bar-input" value={input} onChange={(e) => setInput(e.target.value)} placeholder="Find your favorite meal 🔎" />
+            {input && <button className="search-bar-button" type="button" onClick={clearInput}>Clear</button>}
         </form>
     );
 }
