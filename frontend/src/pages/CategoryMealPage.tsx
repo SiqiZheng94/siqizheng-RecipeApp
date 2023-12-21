@@ -36,6 +36,10 @@ export default function CategoryMealPage(props:CategoryMealPageProps) {
                                          alt={meal.strMeal}
                                     />
                                 )}
+                                <div className={"two-buttons"}>
+                                    <button><span>Edit</span></button>
+                                    <button><span>Delete</span></button>
+                                </div>
                                 <p className={"meal-introduction"}>{meal.strMeal}</p>
                             </div>
                         )

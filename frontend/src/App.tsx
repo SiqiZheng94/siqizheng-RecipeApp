@@ -16,6 +16,7 @@ import RecipeDetailsPage from "./pages/RecipeDetailsPage.tsx";
 import FirstLetterMealPage from "./pages/FirstLetterMealPage.tsx";
 
 import AddRecipe from "./components/AddRecipe.tsx";
+import RecipeEditPage from "./pages/RecipeEditPage.tsx";
 
 
 
@@ -45,7 +46,7 @@ function App() {
                 <div className={"container main"}>
                     <Routes>
                         <Route path="/" element={<HomePage/>}/>
-                        <Route path="/meals" element={<AllMealPage meals={meals}/>}/>
+                        <Route path="/meals" element={<AllMealPage meals={meals} getMeals={fetchData}/>}/>
 
                         <Route path="/add-recipe" element={<AddRecipe/>}/>
 
@@ -53,9 +54,11 @@ function App() {
                             isLoading ? (<p>Loading...</p>) :
                                 <CategoryMealPage meals={meals}/>}/>
                         <Route path="/recipe/:id" element={
-
                             isLoading ? (<p>Loading...</p>):
                             <RecipeDetailsPage meals={meals}/>}/>
+                        <Route path="/recipe/edit/:id" element={
+                            isLoading ? (<p>Loading...</p>):
+                                <RecipeEditPage meals={meals}/>}/>
                         <Route path="/meals/letter/:letter" element={
                             <FirstLetterMealPage/>}/>
                     </Routes>
