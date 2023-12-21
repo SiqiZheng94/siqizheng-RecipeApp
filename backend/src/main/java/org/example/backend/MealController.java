@@ -65,11 +65,15 @@ public class MealController {
 
     }
 
-    @PostMapping("/add")
-    public MealRecord addMeal(@RequestBody MealDto mealDto) {
-        MealRecord mealRecord = convertToRecord(mealDto);
-        return service.addMeal(mealRecord);
-    }
+//    @PostMapping("/add")
+//    public MealRecord addMeal(@RequestBody MealDto mealDto) {
+//        MealRecord mealRecord = convertToRecord(mealDto);
+//        return service.addMeal(mealRecord);
+//    }
+@PostMapping("/add")
+public MealRecord addMeal(@RequestBody MealDto mealDto) {
+    return service.saveMeal(mealDto);
+}
 
     @PutMapping("/update/{id}")
     public MealRecord updateMeal(@PathVariable String id, @RequestBody MealDto mealDto) {
