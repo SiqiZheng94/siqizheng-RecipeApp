@@ -5,7 +5,7 @@ type CategoryMealPageProps = {
     meals:Meal[]
 }
 
-export default function CategoryMealPage(props:CategoryMealPageProps) {
+export default function CategoryMealPage(props: Readonly<CategoryMealPageProps>) {
     const pathCategory = useParams().category
     const [error, setError] = useState<string>("")
     const [filteredMeals, setFilteredMeals] = useState<Meal[]>([])
@@ -36,10 +36,10 @@ export default function CategoryMealPage(props:CategoryMealPageProps) {
                                          alt={meal.strMeal}
                                     />
                                 )}
-                                <div className={"two-buttons"}>
-                                    <button><span>Edit</span></button>
-                                    <button><span>Delete</span></button>
-                                </div>
+                                {/*<div className={"two-buttons"}>*/}
+                                {/*    <button><span>Edit</span></button>*/}
+                                {/*    <button><span>Delete</span></button>*/}
+                                {/*</div>*/}
                                 <p className={"meal-introduction"}>{meal.strMeal}</p>
                             </div>
                         )
