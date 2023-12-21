@@ -75,9 +75,8 @@ public MealRecord addMeal(@RequestBody MealDto mealDto) {
     return service.saveMeal(mealDto);
 }
 
-    @PutMapping("/update/{id}")
-    public MealRecord updateMeal(@PathVariable String id, @RequestBody MealDto mealDto) {
-        MealRecord mealRecord = convertToRecord(mealDto);
+    @PutMapping("/update")
+    public MealRecord updateMeal( @RequestBody MealRecord mealRecord) {
         return service.updateMeal(mealRecord);
     }
 
