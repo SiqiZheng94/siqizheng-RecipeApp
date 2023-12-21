@@ -4,9 +4,9 @@ Unser aktuelles Gruppenprojekt vereint modernste **Frontend-** und **Backend-Tec
 
 ### 1.Frontend-Technologien:
 
--**Vite:** Eine schnelle und flexible Build-Tool für moderne Webprojekte.
--**Node:** Die serverseitige JavaScript-Laufzeitumgebung für die Entwicklung des Frontends.
--**React mit TypeScript:** Die bewährte Bibliothek für den Aufbau von Benutzeroberflächen, kombiniert mit der Typsicherheit von TypeScript für eine robuste Entwicklung.
+- **Vite:** Eine schnelle und flexible Build-Tool für moderne Webprojekte.
+- **Node:** Die serverseitige JavaScript-Laufzeitumgebung für die Entwicklung des Frontends.
+- **React mit TypeScript:** Die bewährte Bibliothek für den Aufbau von Benutzeroberflächen, kombiniert mit der Typsicherheit von TypeScript für eine robuste Entwicklung.
 
 Zur Verbesserung der Benutzererfahrung und des Designs verwenden wir außerdem:
 
