@@ -12,7 +12,7 @@ import java.util.Locale;
 @RequestMapping("/api/meals")
 @RequiredArgsConstructor
 public class MealController {
-
+    private final IdService idService;
     private final MealService service;
 
     @GetMapping
@@ -85,6 +85,7 @@ public class MealController {
     private MealRecord convertToRecord(MealDto mealDto) {
         return new MealRecord(
                 null,
+                idService.randomId(),
                 mealDto.getStrMeal() != null ? mealDto.getStrMeal() : "",
                 mealDto.getStrCategory() != null ? mealDto.getStrCategory() : "",
                 mealDto.getStrArea() != null ? mealDto.getStrArea() : "",
