@@ -93,19 +93,18 @@ public class MealService {
 
 //////////
     public MealRecord saveMeal (MealDto mealDto){
-        String defaultImage = "./defaultImage.jpeg";
-        String mealThumb=(mealDto.getStrMealThumb()!=null && !mealDto.getStrMealThumb().isEmpty())
-                ? mealDto.getStrMealThumb()
-                : defaultImage;
+//        String defaultImage = "./defaultImage.jpeg";
+//        String mealThumb=(mealDto.getStrMealThumb()!=null && !mealDto.getStrMealThumb().isEmpty())
+//                ? mealDto.getStrMealThumb()
+//                : defaultImage;
         MealRecord newMealRecord = new MealRecord(
                 null,
                 idService.randomId(),
-                mealDto.getStrMeal() != null ? mealDto.getStrMeal() : "",
+                mealDto.getStrMeal() != "" ? mealDto.getStrMeal() : "Test",
                 mealDto.getStrCategory() != null ? mealDto.getStrCategory() : "",
                 mealDto.getStrArea() != null ? mealDto.getStrArea() : "",
                 mealDto.getStrInstructions() != null ? mealDto.getStrInstructions() : "",
-                mealThumb,
-                //mealDto.getStrMealThumb() != null ? mealDto.getStrMealThumb() : defaultImage,
+                mealDto.getStrMealThumb() != "" ? mealDto.getStrMealThumb() : "https://cdn.pixabay.com/photo/2014/12/21/23/28/recipe-575434_960_720.png",
                 mealDto.getStrTags() != null ? mealDto.getStrTags() : "",
                 mealDto.getStrIngredient1() != null ? mealDto.getStrIngredient1() : "",
                 mealDto.getStrIngredient2() != null ? mealDto.getStrIngredient2() : "",
