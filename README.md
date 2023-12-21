@@ -1,8 +1,8 @@
-### Projektbeschreibung: Modernes Webanwendungsprojekt mit Vite, React und Spring Boot *Gruppenprojekt*
+## Projektbeschreibung: Modernes Webanwendungsprojekt mit Vite, React und Spring Boot *Gruppenprojekt*
 
 Unser aktuelles Gruppenprojekt vereint modernste **Frontend-** und **Backend-Technologien**, um eine leistungsstarke und skalierbare Webanwendung zu schaffen. Die Frontend-Entwicklung erfolgt unter Verwendung von Vite, Node, React und TypeScript, während das Backend mit Spring Initializr, Java, Maven, JDK 21 und der Spring-Technologie-Stack entwickelt wird.
 
-#### 1. Frontend-Technologien:
+### 1. Frontend-Technologien:
 
 - **Vite:** Eine schnelle und flexible Build-Tool für moderne Webprojekte.
 - **Node:** Die serverseitige JavaScript-Laufzeitumgebung für die Entwicklung des Frontends.
@@ -16,7 +16,7 @@ Zur Verbesserung der Benutzererfahrung und des Designs verwenden wir außerdem:
 - **Scss:** Eine erweitere CSS-Syntax für eine klarere und strukturierte Stylesheet-Entwicklung.
 - **Font Awesome und Google Fonts:** Für eine ansprechende Darstellung von Icons und Schriftarten.
 
-#### 2. Backend-Technologien:
+### 2. Backend-Technologien:
 
 - **Spring Initializr:** Ein leistungsstarkes Werkzeug zur schnellen Einrichtung von Spring-Projekten.
 - **Java und Maven:** Die bewährte Kombination für die Entwicklung von robusten und gut strukturierten Java-Anwendungen.
