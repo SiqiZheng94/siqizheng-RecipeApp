@@ -91,7 +91,7 @@ public class MealService {
         return repo.findAllByStrMealContainingIgnoreCase(name);
     }
 
-//////////
+
     public MealRecord saveMeal (MealDto mealDto){
         String defaultImage = "./defaultImage.jpeg";
         String mealThumb=(mealDto.getStrMealThumb()!=null && !mealDto.getStrMealThumb().isEmpty())
@@ -150,7 +150,6 @@ public class MealService {
         );
         return repo.save(newMealRecord);
     }
-///////////
 
 }
 

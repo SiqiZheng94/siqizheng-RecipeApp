@@ -1,25 +1,20 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import axios from 'axios';
 import { Meal } from "../Meal.ts";
 
 type RecipeEditPageProps = {
     meals: Meal[];
+    getData:()=>void
 }
 
 export default function RecipeEditPage(props: RecipeEditPageProps) {
     const { id: pathId } = useParams();
     const [selectedMeal, setSelectedMeal] = useState<Meal | null>(null);
     const [error, setError] = useState<string>("");
+    const navigate = useNavigate()
 
-    useEffect(() => {
-        const mealData = props.meals.find(meal => meal._id === pathId);
-        if (mealData) {
-            setSelectedMeal(mealData);
-        } else {
-            setError("Recipe not found.");
-        }
-    }, [pathId, props.meals]);
+
 
     const handleEdit = (field: keyof Meal, event: React.FocusEvent<HTMLElement>) => {
         const editedContent = event.currentTarget.textContent;
@@ -34,8 +29,12 @@ export default function RecipeEditPage(props: RecipeEditPageProps) {
     const handleSubmit = async () => {
         if (selectedMeal) {
             try {
-                await axios.put(`/update/${selectedMeal._id}`, selectedMeal);
+                await axios.put(`/api/meals/update`, selectedMeal)
+                    .then(props.getData)
                 console.log('Update successful');
+                navigate("/recipe/"+selectedMeal._id)
+
+
             } catch (err) {
                 setError("Failed to update the recipe.");
                 console.error('Error updating the meal:', err);
@@ -43,12 +42,22 @@ export default function RecipeEditPage(props: RecipeEditPageProps) {
         }
     };
 
+    useEffect(() => {
+        const mealData = props.meals.find(meal => meal._id === pathId);
+        if (mealData) {
+            setSelectedMeal(mealData);
+        } else {
+            setError("Recipe not found.");
+        }
+    }, [pathId, props.meals]);
+
     if (!selectedMeal) return <div>Loading...</div>;
 
     return (
-        <div>
+        <div className={"recipe-details"}>
             <h1 contentEditable={true} onBlur={(e) => handleEdit('strMeal', e)} dangerouslySetInnerHTML={{ __html: selectedMeal?.strMeal || "" }}></h1>
             <img src={selectedMeal?.strMealThumb} alt="recipe image" />
+            <div contentEditable={true} onBlur={(e) => handleEdit('strMealThumb', e)} dangerouslySetInnerHTML={{ __html: selectedMeal?.strMealThumb || "" }}></div>
             <div contentEditable={true} onBlur={(e) => handleEdit('strInstructions', e)} dangerouslySetInnerHTML={{ __html: selectedMeal?.strInstructions || "" }}></div>
 
             <div className="ingredient-list">
@@ -61,10 +70,10 @@ export default function RecipeEditPage(props: RecipeEditPageProps) {
 
                             return (
                                 <React.Fragment key={index}>
-                                    {selectedMeal && selectedMeal[ingredientField] && selectedMeal[ingredientField].trim() !== "" && (
+                                    {selectedMeal && selectedMeal[ingredientField] && selectedMeal[ingredientField]?.trim() !== "" && (
                                         <li contentEditable={true} onBlur={(e) => handleEdit(ingredientField, e)} dangerouslySetInnerHTML={{ __html: selectedMeal[ingredientField] || "" }}></li>
                                     )}
-                                    {selectedMeal && selectedMeal[measureField] && selectedMeal[measureField].trim() !== "" && (
+                                    {selectedMeal && selectedMeal[measureField] && selectedMeal[measureField]?.trim() !== "" && (
                                         <li contentEditable={true} onBlur={(e) => handleEdit(measureField, e)} dangerouslySetInnerHTML={{ __html: selectedMeal[measureField] || "" }}></li>
                                     )}
                                 </React.Fragment>
@@ -75,7 +84,7 @@ export default function RecipeEditPage(props: RecipeEditPageProps) {
             </div>
 
             {error && <p>{error}</p>}
-            <button onClick={handleSubmit}>Submit</button>
+            <button className={"submit"} onClick={handleSubmit}>Submit</button>
         </div>
     );
 }

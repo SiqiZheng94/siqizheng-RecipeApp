@@ -4,18 +4,20 @@ import {useParams} from "react-router-dom";
 
 type RecipeDetailsPageProps = {
     meals:Meal[]
+    getMeals:()=>void
 }
 export default function RecipeDetailsPage(props:RecipeDetailsPageProps){
     const pathId = useParams().id
     const [selectedMeal, setSelectedMeal] = useState<Meal>()
     const [error, setError] = useState<string>("")
+    const [isLoading, setIsLoading] = useState<boolean>(true)
     const mealData = props.meals.find(
         (meal:Meal) => meal._id === pathId
     )
     useEffect(() => {
         if (mealData){
             setSelectedMeal(mealData)
-            setError("")
+            setIsLoading(false)
         }
         else {
             setError("NOT FOUND!")
@@ -24,7 +26,9 @@ export default function RecipeDetailsPage(props:RecipeDetailsPageProps){
 
 
     return (
-        <div>
+        <>
+        {!isLoading &&
+        <div className={"recipe-details"}>
                 <h1>{selectedMeal?.strMeal}</h1>
                 <img src={selectedMeal?.strMealThumb} alt="recipe image"/>
                 <div>{selectedMeal?.strInstructions}</div>
@@ -81,6 +85,6 @@ export default function RecipeDetailsPage(props:RecipeDetailsPageProps){
                 </div>
             {error}
         </div>
-
-    )
+        }
+    </>)
 }
