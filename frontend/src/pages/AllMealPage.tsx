@@ -37,6 +37,7 @@ export default function AllMealPage(props: MealPageProps) {
             });
     }
 
+
     return (
         <div>
             <div className={"management"}>
@@ -46,25 +47,26 @@ export default function AllMealPage(props: MealPageProps) {
 
             <div className={"meal-container"}>
                 {meals.map((meal: Meal) => (
-                    <div className={"meal-card"} key={meal.idMeal}>
-                        {meal.strMealThumb && (
-                            <img
-                                className={"meal-picture"}
-                                onClick={() => navigate("/recipe/" + meal._id)}
-                                src={meal.strMealThumb}
-                                alt={meal.strMeal}
-                            />
-                        )}
-                        {manage &&
+                        <div className={"meal-card"} key={meal.idMeal}>
+                            {meal.strMealThumb && (
+                                <img className={"meal-picture"}
+                                     onClick={()=>navigate("/recipe/"+meal._id)}
+                                     src={meal.strMealThumb}
+                                     alt={meal.strMeal}
+                                />
+                            )}
+                            {manage &&
                             <div className={"two-buttons"}>
-                                <button onClick={() => navigate("/recipe/edit/" + meal._id)}><span>Edit</span></button>
-                                <button onClick={() => deleteThisItem(meal._id)}><span>Delete</span></button>
-                            </div>
-                        }
-                        <p className={"meal-introduction"}>{meal.strMeal}</p>
-                    </div>
-                ))}
+                                <button onClick={()=>navigate("/recipe/edit/"+meal._id)}><span>Edit</span></button>
+                                <button onClick={()=>deleteThisItem(meal._id)}><span>Delete</span></button>
+                            </div>}
+                            <p className={"meal-introduction"} onClick={()=>navigate("/recipe/"+meal._id)}>
+                                {meal.strMeal}
+                            </p>
+                        </div>
+                    )
+                )}
             </div>
         </div>
-    );
+    )
 }
