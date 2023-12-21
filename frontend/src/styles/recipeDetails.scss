@@ -1,21 +1,37 @@
-.ingredient-list {
+.recipe-details {
   display: flex;
-  justify-content: space-between;
-}
-.column {
-  flex-basis: calc(50%);
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  border: 1px solid #ccc;
-  padding: 10px;
-}
-div {
+  flex-direction: column;
+  align-items: center;
   img {
+    width: 70%;
+    margin: 3vw 0 1vw 0;
     border: none;
   }
+  div {
+    margin-bottom: 1vw;
+  }
+  .ingredient-list {
+    display: flex;
+    justify-content: space-between;
+    margin: 1vw;
+  }
+  .column {
+    flex-basis: calc(50%);
+    margin: 0;
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      border: 1px solid #ccc;
+      padding: 10px;
+      height: 3vw;
+      width: 20vw
+    }
+  }
+
 }
+
+
+
