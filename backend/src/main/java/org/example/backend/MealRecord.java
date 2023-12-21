@@ -1,5 +1,7 @@
 package org.example.backend;
 
+import lombok.Data;
+import lombok.Getter;
 import lombok.With;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -8,6 +10,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public record MealRecord(
 
         String _id,
+        String idMeal,
         String strMeal,
         String strCategory,
         String strArea,

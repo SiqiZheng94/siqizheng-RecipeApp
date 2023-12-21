@@ -1,6 +1,7 @@
-/*
+
 package org.example.backend;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -8,8 +9,16 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+
+import java.util.List;
+
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -20,25 +29,28 @@ public class MealControllerTest {
     private MockMvc mvc;
     @Autowired
     private MealController mealController;
+    @Autowired
+    ObjectMapper objectMapper;
     @Test
     void getAllMeals_shouldReturnEmptyList_WhenCalledInitially()throws Exception{
         mvc.perform(
                 MockMvcRequestBuilders.get(BASE_URL)
                 )
                 .andExpect(
-                        MockMvcResultMatchers.status()
+                        status()
                         .isOk()
                 )
                 .andExpect(
-                        MockMvcResultMatchers.content()
+                        content()
                                 .json("[]")
                         );
     }
+    /*
 @Test
     void shouldReturnMeal_whenStoredInDb() throws Exception{
         MealDto meal= new MealDto(
-                "65798940147f2ee6720d3cae",
-                "52837",
+                //"658300534635ad5e48abb8b8",
+               // "52837",
                 "Pilchard puttanesca",
                 "Pasta",
                 "Italian",
@@ -86,16 +98,34 @@ public class MealControllerTest {
                 "",
                 ""
         );
+    //GIVEN
+    String bodyJson = objectMapper.writeValueAsString(meal);
+
+    MvcResult result = mvc.perform(post(BASE_URL+ "/add")
+                    .contentType(MediaType.APPLICATION_JSON)
+                    .content(bodyJson))
+            .andReturn();
+
+    MealRecord mealInDB = objectMapper.readValue(result.getResponse().getContentAsString(), MealRecord.class);
+    String mealAsJson = objectMapper.writeValueAsString(List.of(mealInDB));
+
+    //WHEN
+    mvc.perform(MockMvcRequestBuilders.get(BASE_URL))
+
+            //THEN
+            .andExpect(status().isOk())
+            .andExpect(content().json(mealAsJson));
+
         mealController.addMeal(meal);
         mvc.perform(
                 MockMvcRequestBuilders.get(BASE_URL)
         )
-                .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.content().json(
+                .andExpect(status().isOk())
+                .andExpect(content().json(
                         """
                 [
                     {
-                        "_id": "65798940147f2ee6720d3cae",
+                        "_id": "658300534635ad5e48abb8b8",
                         "idMeal": "52837",
                         "strMeal": "Pilchard puttanesca",
                         "strCategory": "Pasta",
@@ -146,12 +176,12 @@ public class MealControllerTest {
                     }]
                     """
                 ));
-    }
+
+
     @Test
     void getMealsByCategory_shouldReturnMeal_whenCategoryIsPasta()throws Exception{
         MealDto meal= new MealDto(
-                "65798940147f2ee6720d3cae",
-                "52837",
+
                 "Pilchard puttanesca",
                 "Pasta",
                 "Italian",
@@ -263,8 +293,8 @@ public class MealControllerTest {
     @Test
     void getMealsByFirstLetter_shouldReturnPutanescaWhenFirstLetterIsP() throws Exception{
         MealDto meal= new MealDto(
-                "65798940147f2ee6720d3cae",
-                "52837",
+                //"65798940147f2ee6720d3cae",
+              //  "52837",
                 "Pilchard puttanesca",
                 "Pasta",
                 "Italian",
@@ -373,13 +403,15 @@ public class MealControllerTest {
 """
                         )
         )
-                .andExpect(MockMvcResultMatchers.status().isOk());
+                .andExpect(status().isOk());
     }
+    /*
     @Test
+
     void updateMeal_shouldChangeIngredient() throws Exception {
-        MealDto meal= new MealDto(
-                "65798940147f2ee6720d3cae",
-                "52837",
+        MealRecord meal= new MealRecord(
+               "65798940147f2ee6720d3cae",
+                //"52837",
                 "Pilchard puttanesca",
                 "Pasta",
                 "Italian",
@@ -428,8 +460,9 @@ public class MealControllerTest {
                 ""
         );
         mealController.addMeal(meal);
-        MealDto newMeal= new MealDto("65798940147f2ee6720d3cae",
-                "52837",
+        MealDto newMeal= new MealDto(
+                //"65798940147f2ee6720d3cae",
+                //"52837",
                 "Pilchard puttanesca",
                 "Pasta",
                 "Italian",
@@ -535,8 +568,8 @@ public class MealControllerTest {
                     }
 """
         ))
-                .andExpect(MockMvcResultMatchers.status().isOk());
+                .andExpect(status().isOk());
 
-    }
+    }*/
 }
-*/
+
