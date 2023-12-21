@@ -89,5 +89,4 @@ jobs:
     steps:
       - name: Trigger render.com Deployment
         run: |
-          curl-X POST ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
-
+          curl -X POST ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
