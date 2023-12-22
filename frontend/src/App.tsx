@@ -55,10 +55,10 @@ function App() {
                                 <CategoryMealPage meals={meals}/>}/>
                         <Route path="/recipe/:id" element={
                             isLoading ? (<p>Loading...</p>):
-                            <RecipeDetailsPage meals={meals}/>}/>
+                            <RecipeDetailsPage meals={meals} getMeals={fetchData}/>}/>
                         <Route path="/recipe/edit/:id" element={
                             isLoading ? (<p>Loading...</p>):
-                                <RecipeEditPage meals={meals}/>}/>
+                                <RecipeEditPage meals={meals} getData={fetchData}/>}/>
                         <Route path="/meals/letter/:letter" element={
                             <FirstLetterMealPage/>}/>
                     </Routes>

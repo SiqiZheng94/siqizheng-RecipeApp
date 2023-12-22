@@ -70,10 +70,10 @@ public class MealController {
 //        MealRecord mealRecord = convertToRecord(mealDto);
 //        return service.addMeal(mealRecord);
 //    }
-@PostMapping("/add")
-public MealRecord addMeal(@RequestBody MealDto mealDto) {
-    return service.saveMeal(mealDto);
-}
+    @PostMapping("/add")
+    public MealRecord addMeal(@RequestBody MealDto mealDto) {
+        return service.saveMeal(mealDto);
+    }
 
     @PutMapping("/update")
     public MealRecord updateMeal( @RequestBody MealRecord mealRecord) {

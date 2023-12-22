@@ -23,7 +23,8 @@ export default function CategoryImage(){
     return (
         <>
         {
-            categories.map((category,index)=>
+            // using the "slice" method to in iterate though the first 12 categories
+            categories.slice(0,12).map((category,index)=>
                 <div className="custom-image" style={{paddingTop: "90%"}} key={index}>
                     <img
                         onClick={()=>navigate("/category/"+category.strCategory)}
