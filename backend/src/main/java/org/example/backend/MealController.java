@@ -137,11 +137,11 @@ public class MealController {
 //                mealDto.getStrMeasure20() != null ? mealDto.getStrMeasure20() : ""
 //        );
 //    }
-    //////////////////
+
 private MealRecord convertToRecord(MealDto mealDto){
         return service.saveMeal(mealDto);
 }
-/////////////////////
+
 
     @GetMapping("/category")
     public List <MealRecord> getMealsByCategoryAndFirstLetter(@RequestParam String category,@RequestParam String letter) throws MealNotFoundException{
