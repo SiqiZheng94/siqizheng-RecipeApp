@@ -1,14 +1,14 @@
-name: Periodic URL Request
-
-on:
-  schedule:
-    - cron: '*/10 * * * *'
-
-jobs:
-  make_request:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Curl request
-        run: |
-          curl -X POST https://recipe-app-v1-ebov.onrender.com
+#name: Periodic URL Request
+#
+#on:
+#  schedule:
+#    - cron: '*/10 * * * *'
+#
+#jobs:
+#  make_request:
+#    runs-on: ubuntu-latest
+#
+#    steps:
+#      - name: Curl request
+#        run: |
+#          curl -X POST https://recipe-app-v1-ebov.onrender.com

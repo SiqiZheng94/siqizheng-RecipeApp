@@ -1,5 +1,5 @@
 FROM --platform=linux/amd64 openjdk:21
-LABEL authors="ivan"
+LABEL authors="siqizheng"
 EXPOSE 8080
 
 ADD backend/target/app.jar app.jar
