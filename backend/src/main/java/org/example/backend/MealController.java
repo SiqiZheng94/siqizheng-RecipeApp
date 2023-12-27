@@ -100,5 +100,4 @@ private MealRecord convertToRecord(MealDto mealDto){
     public List <MealRecord> getMealsByAreaAndFirstLetter(@RequestParam String area,@RequestParam String letter) throws MealNotFoundException{
         return service.getMealsByAreaAndFirstLetter(area,letter);
     }
-
 }
