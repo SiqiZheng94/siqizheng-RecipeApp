@@ -25,8 +25,10 @@ public class MealService {
     }
 
 
-    public MealRecord getMealById(String id) {
-        return repo.findById(id).orElse(null);
+    public MealRecord getMealById(String id) throws MealNotFoundException {
+//        return repo.findById(id).orElse(null);
+        return repo.findById(id)
+                .orElseThrow(()->new MealNotFoundException());
     }
 
 

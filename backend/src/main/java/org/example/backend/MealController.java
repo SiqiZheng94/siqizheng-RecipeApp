@@ -26,7 +26,7 @@ public class MealController {
     }
 
     @GetMapping("/{id}")
-    public MealRecord getMealById(@PathVariable String id) {
+    public MealRecord getMealById(@PathVariable String id) throws MealNotFoundException {
         return service.getMealById(id);
     }
 
