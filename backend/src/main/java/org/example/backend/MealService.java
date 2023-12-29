@@ -70,9 +70,9 @@ public class MealService {
     }
 
 
-    public MealRecord addMeal(MealRecord mealRecord){
-        return repo.insert(mealRecord);
-    }
+//    public MealRecord addMeal(MealRecord mealRecord){
+//        return repo.insert(mealRecord);
+//    }
 
     public MealRecord updateMeal( MealRecord mealRecord){
         return repo.save(mealRecord);
@@ -93,10 +93,6 @@ public class MealService {
 
 
     public MealRecord saveMeal (MealDto mealDto){
-//        String defaultImage = "./defaultImage.jpeg";
-//        String mealThumb=(mealDto.getStrMealThumb()!=null && !mealDto.getStrMealThumb().isEmpty())
-//                ? mealDto.getStrMealThumb()
-//                : defaultImage;
         MealRecord newMealRecord = new MealRecord(
                 null,
                 idService.randomId(),

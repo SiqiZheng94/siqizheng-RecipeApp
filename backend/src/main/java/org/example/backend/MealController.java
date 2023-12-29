@@ -87,9 +87,9 @@ public class MealController {
 
 
 
-private MealRecord convertToRecord(MealDto mealDto){
-        return service.saveMeal(mealDto);
-}
+//private MealRecord convertToRecord(MealDto mealDto){
+//        return service.saveMeal(mealDto);
+//}
 
 
     @GetMapping("/category")
