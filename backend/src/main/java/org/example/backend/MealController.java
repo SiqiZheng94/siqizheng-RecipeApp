@@ -1,12 +1,9 @@
 package org.example.backend;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.nio.charset.CharacterCodingException;
 import java.util.List;
-import java.util.Locale;
 
 @RestController
 @RequestMapping("/api/meals")
@@ -21,12 +18,12 @@ public class MealController {
     }
 
     @GetMapping("/random")
-    public MealRecord getRandomMeal() throws MealNotFoundException{
+    public MealRecord getRandomMeal() throws NotFoundException {
         return service.getRandomMeal();
     }
 
     @GetMapping("/{id}")
-    public MealRecord getMealById(@PathVariable String id) throws MealNotFoundException {
+    public MealRecord getMealById(@PathVariable String id) throws NotFoundException {
         return service.getMealById(id);
     }
 
@@ -45,7 +42,7 @@ public class MealController {
         return service.getRandomMealByCategory(category);
     }
     @GetMapping("/letter/{letter}")
-    public List<MealRecord> getMealsByFirstLetter(@PathVariable String letter) {
+    public List<MealRecord> getMealsByFirstLetter(@PathVariable String letter) throws NotFoundException {
         return service.getMealsByFirstLetter(letter);
     }
     @GetMapping("/area/{area}")
@@ -93,11 +90,11 @@ public class MealController {
 
 
     @GetMapping("/category")
-    public List <MealRecord> getMealsByCategoryAndFirstLetter(@RequestParam String category,@RequestParam String letter) throws MealNotFoundException{
+    public List <MealRecord> getMealsByCategoryAndFirstLetter(@RequestParam String category,@RequestParam String letter) throws NotFoundException {
         return service.getMealsByCategoryAndFirstLetter(category,letter);
     }
     @GetMapping("/area")
-    public List <MealRecord> getMealsByAreaAndFirstLetter(@RequestParam String area,@RequestParam String letter) throws MealNotFoundException{
+    public List <MealRecord> getMealsByAreaAndFirstLetter(@RequestParam String area,@RequestParam String letter) throws NotFoundException {
         return service.getMealsByAreaAndFirstLetter(area,letter);
     }
 }

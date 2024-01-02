@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 public class GlobalExceptionHandler {
     @ExceptionHandler()
     @ResponseStatus()
-    public String handleException (MealNotFoundException exception) {
-        return "a new exception";
+    public ErrorMessage handleException (NotFoundException exception) {
+        return new ErrorMessage(exception.getMessage());
     }
 }
