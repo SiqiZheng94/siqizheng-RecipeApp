@@ -33,24 +33,24 @@ public class MealController {
     }
 
     @GetMapping("/category/{category}")
-    public List<MealRecord> getMealsByCategory(@PathVariable String category) throws CategoryNotFoundException{
+    public List<MealRecord> getMealsByCategory(@PathVariable String category) throws NotFoundException {
         return service.getMealsByCategory(category);
     }
 
-    @GetMapping("category/{category}/random")
-    public MealRecord getRandomMealByCategory(@PathVariable String category) throws CategoryNotFoundException{
-        return service.getRandomMealByCategory(category);
-    }
+//    @GetMapping("category/{category}/random")
+//    public MealRecord getRandomMealByCategory(@PathVariable String category) throws NotFoundException{
+//        return service.getRandomMealByCategory(category);
+//    }
     @GetMapping("/letter/{letter}")
     public List<MealRecord> getMealsByFirstLetter(@PathVariable String letter) throws NotFoundException {
         return service.getMealsByFirstLetter(letter);
     }
     @GetMapping("/area/{area}")
-    public List<MealRecord>getMealsByArea(@PathVariable String area) throws AreaNotFoundException{
+    public List<MealRecord>getMealsByArea(@PathVariable String area) throws NotFoundException{
         return service.getMealsByArea(area);
     }
     @GetMapping("/ingredient/{ingredient}")
-    public List<MealRecord>getMealsByIngredient(@PathVariable String ingredient) throws IngredientNotFoundException{
+    public List<MealRecord>getMealsByIngredient(@PathVariable String ingredient) throws NotFoundException{
         return service.getMealsByIngredient1(ingredient);
     }
 
@@ -62,11 +62,6 @@ public class MealController {
 
     }
 
-//    @PostMapping("/add")
-//    public MealRecord addMeal(@RequestBody MealDto mealDto) {
-//        MealRecord mealRecord = convertToRecord(mealDto);
-//        return service.addMeal(mealRecord);
-//    }
     @PostMapping("/add")
     public MealRecord addMeal(@RequestBody MealDto mealDto) {
         return service.saveMeal(mealDto);

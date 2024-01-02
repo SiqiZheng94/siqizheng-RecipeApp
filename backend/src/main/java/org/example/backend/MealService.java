@@ -31,12 +31,12 @@ public class MealService {
     }
 
 
-    public MealRecord getRandomMealByCategory(String category) throws CategoryNotFoundException{
-        List<MealRecord> meals = repo.findAllByStrCategoryIgnoreCase(category)
-                .orElseThrow(()->new CategoryNotFoundException("No such category found"));
-        return meals.get((int) (Math.random() * meals.size()));
-
-    }
+//    public MealRecord getRandomMealByCategory(String category) throws NotFoundException{
+//        List<MealRecord> meals = repo.findAllByStrCategoryIgnoreCase(category)
+//                .orElseThrow(()->new NotFoundException("No such category found"));
+//        return meals.get((int) (Math.random() * meals.size()));
+//
+//    }
 
 
     public List<MealRecord> getMealsByFirstLetter(String letter) throws NotFoundException {
@@ -47,27 +47,33 @@ public class MealService {
         return allMeals;
     }
 
-    public List <MealRecord> getMealsByCategory(String category) throws CategoryNotFoundException{
-        return repo.findAllByStrCategoryIgnoreCase(category)
-                .orElseThrow(() ->new CategoryNotFoundException("The category you are searching for is not existing"));
+    public List <MealRecord> getMealsByCategory(String category) throws NotFoundException{
+        List<MealRecord> allMeals = repo.findAllByStrCategoryIgnoreCase(category);
+        if (allMeals.isEmpty()){
+            throw new NotFoundException("The category you are searching for is not existing.");
+        }
+        return allMeals;
     }
     public List <MealRecord> getMealsByCategoryAndFirstLetter(String category, String letter) throws NotFoundException {
         return repo.findAllByStrCategoryAndStrMealIsStartingWith(category,letter)
                 .orElseThrow(()-> new NotFoundException("No meals found for for category: \" + category + \" and starting letter: \" + letter"));
     }
 
-    public List <MealRecord> getMealsByArea(String area) throws AreaNotFoundException{
-        return repo.findAllByStrAreaIgnoreCase(area)
-                .orElseThrow(()-> new AreaNotFoundException("Area not found exception"));
+    public List <MealRecord> getMealsByArea(String area) throws NotFoundException{
+        List<MealRecord> allMeals = repo.findAllByStrAreaIgnoreCase(area);
+        if (allMeals.isEmpty()){
+            throw new NotFoundException("This area isn't found.");
+        }
+        return allMeals;
     }
 
     public List<MealRecord> getMealsByAreaAndFirstLetter(String area,String letter) throws NotFoundException {
         return repo.findAllByStrAreaAndStrMealIsStartingWith(area,letter)
                 .orElseThrow(() ->new NotFoundException("No meals found for area: " + area + "and starting letter: "+ letter));
     }
-    public List <MealRecord> getMealsByIngredient1(String ingredient) throws IngredientNotFoundException {
+    public List <MealRecord> getMealsByIngredient1(String ingredient) throws NotFoundException {
         return repo.findAllByStrIngredient1ContainingIgnoreCase(ingredient)
-                .orElseThrow(()->new IngredientNotFoundException("Ingredient not found"));
+                .orElseThrow(()->new NotFoundException("Ingredient not found"));
     }
 
     public MealRecord updateMeal( MealRecord mealRecord){
