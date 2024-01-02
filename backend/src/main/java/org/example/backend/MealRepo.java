@@ -6,14 +6,12 @@ import java.util.Optional;
 
 public interface MealRepo extends MongoRepository<MealRecord, String> {
     List<MealRecord> findAllByStrTagsContainingIgnoreCase(String tag);
-    public Optional<List<MealRecord>> findAllByStrCategoryIgnoreCase(String strCategory);
+    public List<MealRecord> findAllByStrCategoryIgnoreCase(String strCategory);
     List<MealRecord> findAllByStrTagsContaining(String tag);
 
     List<MealRecord> findAllByStrMealStartingWithIgnoreCase(String letter);
-    public Optional<List<MealRecord>> findAllByStrAreaIgnoreCase(String area);
-    public Optional<List<MealRecord>> findAllByStrIngredient1ContainingIgnoreCase(String ingredient);
-    public Optional<List<MealRecord>> findAllByStrCategoryAndStrMealIsStartingWith(String category,String letter);
-    public Optional<List<MealRecord>> findAllByStrAreaAndStrMealIsStartingWith(String area,String letter);
+    public List<MealRecord> findAllByStrAreaIgnoreCase(String area);
 
     List<MealRecord> findAllByStrMealContainingIgnoreCase(String name);
+    List<MealRecord> findAllByStrIngredient1IgnoreCase(String ingredient);
 }

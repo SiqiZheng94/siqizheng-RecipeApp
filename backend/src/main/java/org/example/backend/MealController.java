@@ -1,12 +1,9 @@
 package org.example.backend;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.nio.charset.CharacterCodingException;
 import java.util.List;
-import java.util.Locale;
 
 @RestController
 @RequestMapping("/api/meals")
@@ -21,43 +18,42 @@ public class MealController {
     }
 
     @GetMapping("/random")
-    public MealRecord getRandomMeal() throws MealNotFoundException{
+    public MealRecord getRandomMeal() throws NotFoundException {
         return service.getRandomMeal();
     }
 
     @GetMapping("/{id}")
-    public MealRecord getMealById(@PathVariable String id) {
+    public MealRecord getMealById(@PathVariable String id) throws NotFoundException {
         return service.getMealById(id);
     }
 
     @GetMapping("/name/{name}")
-    public List<MealRecord> getMealsByName(@PathVariable String name) {
+    public List<MealRecord> getMealsByName(@PathVariable String name) throws NotFoundException {
         return service.getMealsByName(name);
     }
 
     @GetMapping("/category/{category}")
-    public List<MealRecord> getMealsByCategory(@PathVariable String category) throws CategoryNotFoundException{
+    public List<MealRecord> getMealsByCategory(@PathVariable String category) throws NotFoundException {
         return service.getMealsByCategory(category);
     }
 
-    @GetMapping("category/{category}/random")
-    public MealRecord getRandomMealByCategory(@PathVariable String category) throws CategoryNotFoundException{
-        return service.getRandomMealByCategory(category);
-    }
+//    @GetMapping("category/{category}/random")
+//    public MealRecord getRandomMealByCategory(@PathVariable String category) throws NotFoundException{
+//        return service.getRandomMealByCategory(category);
+//    }
+
     @GetMapping("/letter/{letter}")
-    public List<MealRecord> getMealsByFirstLetter(@PathVariable String letter) {
+    public List<MealRecord> getMealsByFirstLetter(@PathVariable String letter) throws NotFoundException {
         return service.getMealsByFirstLetter(letter);
     }
     @GetMapping("/area/{area}")
-    public List<MealRecord>getMealsByArea(@PathVariable String area) throws AreaNotFoundException{
+    public List<MealRecord>getMealsByArea(@PathVariable String area) throws NotFoundException{
         return service.getMealsByArea(area);
     }
     @GetMapping("/ingredient/{ingredient}")
-    public List<MealRecord>getMealsByIngredient(@PathVariable String ingredient) throws IngredientNotFoundException{
+    public List<MealRecord>getMealsByIngredient(@PathVariable String ingredient) throws NotFoundException{
         return service.getMealsByIngredient1(ingredient);
     }
-
-
 
     @GetMapping("/categorylist")
     public List <MealCategory> getAllCategories(){
@@ -65,11 +61,6 @@ public class MealController {
 
     }
 
-//    @PostMapping("/add")
-//    public MealRecord addMeal(@RequestBody MealDto mealDto) {
-//        MealRecord mealRecord = convertToRecord(mealDto);
-//        return service.addMeal(mealRecord);
-//    }
     @PostMapping("/add")
     public MealRecord addMeal(@RequestBody MealDto mealDto) {
         return service.saveMeal(mealDto);
@@ -83,21 +74,5 @@ public class MealController {
     @DeleteMapping("/delete/{id}")
     public void deleteMeal(@PathVariable String id) {
         service.deleteMeal(id);
-    }
-
-
-
-//private MealRecord convertToRecord(MealDto mealDto){
-//        return service.saveMeal(mealDto);
-//}
-
-
-    @GetMapping("/category")
-    public List <MealRecord> getMealsByCategoryAndFirstLetter(@RequestParam String category,@RequestParam String letter) throws MealNotFoundException{
-        return service.getMealsByCategoryAndFirstLetter(category,letter);
-    }
-    @GetMapping("/area")
-    public List <MealRecord> getMealsByAreaAndFirstLetter(@RequestParam String area,@RequestParam String letter) throws MealNotFoundException{
-        return service.getMealsByAreaAndFirstLetter(area,letter);
     }
 }
