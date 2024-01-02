@@ -28,7 +28,7 @@ public class MealController {
     }
 
     @GetMapping("/name/{name}")
-    public List<MealRecord> getMealsByName(@PathVariable String name) {
+    public List<MealRecord> getMealsByName(@PathVariable String name) throws NotFoundException {
         return service.getMealsByName(name);
     }
 
@@ -41,6 +41,7 @@ public class MealController {
 //    public MealRecord getRandomMealByCategory(@PathVariable String category) throws NotFoundException{
 //        return service.getRandomMealByCategory(category);
 //    }
+
     @GetMapping("/letter/{letter}")
     public List<MealRecord> getMealsByFirstLetter(@PathVariable String letter) throws NotFoundException {
         return service.getMealsByFirstLetter(letter);
@@ -53,8 +54,6 @@ public class MealController {
     public List<MealRecord>getMealsByIngredient(@PathVariable String ingredient) throws NotFoundException{
         return service.getMealsByIngredient1(ingredient);
     }
-
-
 
     @GetMapping("/categorylist")
     public List <MealCategory> getAllCategories(){
@@ -75,21 +74,5 @@ public class MealController {
     @DeleteMapping("/delete/{id}")
     public void deleteMeal(@PathVariable String id) {
         service.deleteMeal(id);
-    }
-
-
-
-//private MealRecord convertToRecord(MealDto mealDto){
-//        return service.saveMeal(mealDto);
-//}
-
-
-    @GetMapping("/category")
-    public List <MealRecord> getMealsByCategoryAndFirstLetter(@RequestParam String category,@RequestParam String letter) throws NotFoundException {
-        return service.getMealsByCategoryAndFirstLetter(category,letter);
-    }
-    @GetMapping("/area")
-    public List <MealRecord> getMealsByAreaAndFirstLetter(@RequestParam String area,@RequestParam String letter) throws NotFoundException {
-        return service.getMealsByAreaAndFirstLetter(area,letter);
     }
 }

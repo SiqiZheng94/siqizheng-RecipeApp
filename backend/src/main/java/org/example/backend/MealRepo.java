@@ -11,9 +11,7 @@ public interface MealRepo extends MongoRepository<MealRecord, String> {
 
     List<MealRecord> findAllByStrMealStartingWithIgnoreCase(String letter);
     public List<MealRecord> findAllByStrAreaIgnoreCase(String area);
-    public Optional<List<MealRecord>> findAllByStrIngredient1ContainingIgnoreCase(String ingredient);
-    public Optional<List<MealRecord>> findAllByStrCategoryAndStrMealIsStartingWith(String category,String letter);
-    public Optional<List<MealRecord>> findAllByStrAreaAndStrMealIsStartingWith(String area,String letter);
 
     List<MealRecord> findAllByStrMealContainingIgnoreCase(String name);
+    List<MealRecord> findAllByStrIngredient1IgnoreCase(String ingredient);
 }

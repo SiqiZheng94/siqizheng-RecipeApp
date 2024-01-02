@@ -3,7 +3,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
+
 
 @Service
 @RequiredArgsConstructor
@@ -22,7 +22,6 @@ public class MealService {
         return repo.findAll().get(randomIndex);
 
     }
-
 
     public MealRecord getMealById(String id) throws NotFoundException {
 
@@ -54,10 +53,7 @@ public class MealService {
         }
         return allMeals;
     }
-    public List <MealRecord> getMealsByCategoryAndFirstLetter(String category, String letter) throws NotFoundException {
-        return repo.findAllByStrCategoryAndStrMealIsStartingWith(category,letter)
-                .orElseThrow(()-> new NotFoundException("No meals found for for category: \" + category + \" and starting letter: \" + letter"));
-    }
+
 
     public List <MealRecord> getMealsByArea(String area) throws NotFoundException{
         List<MealRecord> allMeals = repo.findAllByStrAreaIgnoreCase(area);
@@ -67,13 +63,13 @@ public class MealService {
         return allMeals;
     }
 
-    public List<MealRecord> getMealsByAreaAndFirstLetter(String area,String letter) throws NotFoundException {
-        return repo.findAllByStrAreaAndStrMealIsStartingWith(area,letter)
-                .orElseThrow(() ->new NotFoundException("No meals found for area: " + area + "and starting letter: "+ letter));
-    }
+
     public List <MealRecord> getMealsByIngredient1(String ingredient) throws NotFoundException {
-        return repo.findAllByStrIngredient1ContainingIgnoreCase(ingredient)
-                .orElseThrow(()->new NotFoundException("Ingredient not found"));
+        List<MealRecord> allMeals = repo.findAllByStrIngredient1IgnoreCase(ingredient);
+        if (allMeals.isEmpty()){
+            throw new NotFoundException("There isn't any meal with ingredient: "+ingredient);
+        }
+        return allMeals;
     }
 
     public MealRecord updateMeal( MealRecord mealRecord){
@@ -89,8 +85,12 @@ public class MealService {
 
     }
 
-    public List<MealRecord> getMealsByName(String name) {
-        return repo.findAllByStrMealContainingIgnoreCase(name);
+    public List<MealRecord> getMealsByName(String name) throws NotFoundException {
+        List<MealRecord> allMeals = repo.findAllByStrMealContainingIgnoreCase(name);
+        if (allMeals.isEmpty()){
+            throw new NotFoundException("There isn't any meal with name: "+name);
+        }
+        return allMeals;
     }
 
 
