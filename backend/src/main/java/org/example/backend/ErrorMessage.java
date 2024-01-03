@@ -1,9 +1,10 @@
 package org.example.backend;
 
 import java.time.Instant;
+import java.time.LocalDateTime;
 
-public record ErrorMessage(String message, Instant timestamp) {
+public record ErrorMessage(String message, LocalDateTime timestamp) {
     public ErrorMessage(String message) {
-        this(message, Instant.now());
+        this(message, new TimestampService().getTime());
     }
 }

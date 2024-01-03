@@ -1,11 +1,13 @@
 
 package org.example.backend;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+
 import org.springframework.http.MediaType;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.web.servlet.MockMvc;
@@ -14,8 +16,11 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import java.nio.charset.Charset;
+import java.time.LocalDateTime;
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -197,4 +202,47 @@ public class MealControllerTest {
                 .andExpect(MockMvcResultMatchers.content().json(updatedMealAsJSON));
     }
 
+
+    // mock the TimestampService to return a fixed timestamp in the test
+//    private final ErrorMessage errorMessage = mock(ErrorMessage.class);
+//    @Test
+//    void getById_returnErrorMessage_whenIdIs1 () throws Exception {
+//        TimestampService timestampService = mock(TimestampService.class);
+//        ErrorMessage errorMessage = mock(ErrorMessage.class);
+//        // mock the TimestampService to return a fixed timestamp in the test
+//        LocalDateTime fixedTimestamp = LocalDateTime.of(2024,1,1,0,0,0,0);
+//        ErrorMessage message = new ErrorMessage("Meal with ID:1 isn't found.", fixedTimestamp);
+//        //when(errorMessage).thenReturn(message);
+//        when(timestampService.getTime()).thenReturn(fixedTimestamp);
+//        verify(timestampService).getTime();
+//        mvc.perform(MockMvcRequestBuilders.get(BASE_URL+"/1"))
+//                .andExpect(MockMvcResultMatchers.status().is5xxServerError())
+//                .andExpect(MockMvcResultMatchers.content().json("""
+//                    {
+//                        "message": "Meal with ID:1 isn't found.",
+//                        "timestamp": "2024-01-01T00:00:00.0Z"
+//                    }
+//                """));
+//
+//    }
+//    @Test
+//    void timestampService() throws JsonProcessingException {
+//        TimestampService timestampService = mock(TimestampService.class);
+//        LocalDateTime fixedTimestamp = LocalDateTime.of(2024,1,1,0,0,0,0);
+//        when(timestampService.getTime()).thenReturn(fixedTimestamp);
+//
+//
+//        ErrorMessage actual=new ErrorMessage("Meal with ID:1 isn't found.");
+//        String actualJson = objectMapper.writeValueAsString(actual);
+//        String exceptedJson = """
+//                {
+//                "message": "Meal with ID:1 isn't found.",
+//                "timestamp": "2024-01-01T00:00:00.0Z"
+//                    }""";
+//
+//        verify(timestampService).getTime();
+//        assertEquals(actualJson,exceptedJson);
+//
+//
+//    }
 }
