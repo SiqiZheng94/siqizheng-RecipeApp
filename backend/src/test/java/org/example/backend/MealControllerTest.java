@@ -204,45 +204,60 @@ public class MealControllerTest {
 
 
     // mock the TimestampService to return a fixed timestamp in the test
-//    private final ErrorMessage errorMessage = mock(ErrorMessage.class);
 //    @Test
 //    void getById_returnErrorMessage_whenIdIs1 () throws Exception {
-//        TimestampService timestampService = mock(TimestampService.class);
 //        ErrorMessage errorMessage = mock(ErrorMessage.class);
-//        // mock the TimestampService to return a fixed timestamp in the test
 //        LocalDateTime fixedTimestamp = LocalDateTime.of(2024,1,1,0,0,0,0);
-//        ErrorMessage message = new ErrorMessage("Meal with ID:1 isn't found.", fixedTimestamp);
-//        //when(errorMessage).thenReturn(message);
-//        when(timestampService.getTime()).thenReturn(fixedTimestamp);
-//        verify(timestampService).getTime();
+//
+//        when(errorMessage.timestamp()).thenReturn(fixedTimestamp);
+//        //verify(errorMessage).message();
 //        mvc.perform(MockMvcRequestBuilders.get(BASE_URL+"/1"))
 //                .andExpect(MockMvcResultMatchers.status().is5xxServerError())
 //                .andExpect(MockMvcResultMatchers.content().json("""
-//                    {
-//                        "message": "Meal with ID:1 isn't found.",
-//                        "timestamp": "2024-01-01T00:00:00.0Z"
-//                    }
+//                    {"message":"Meal with ID:1 isn't found.","timestamp":"2024-01-01T00:00:00"}
 //                """));
 //
 //    }
 //    @Test
-//    void timestampService() throws JsonProcessingException {
+//    void getById_returnErrorMessage_whenIdIs2 () throws Exception {
+//        // 创建 TimestampService 的模拟对象
 //        TimestampService timestampService = mock(TimestampService.class);
-//        LocalDateTime fixedTimestamp = LocalDateTime.of(2024,1,1,0,0,0,0);
+//        ErrorMessage mockErrorMessage = mock(ErrorMessage.class);
+//        // 配置模拟对象以返回固定的时间戳
+//        LocalDateTime fixedTimestamp = LocalDateTime.of(2024, 1, 1, 0, 0, 0, 0);
 //        when(timestampService.getTime()).thenReturn(fixedTimestamp);
+//        when(mockErrorMessage.timestamp()).thenReturn(fixedTimestamp);
+//        // 创建 ErrorMessage 实例时使用模拟的时间戳
+//        ErrorMessage errorMessage = new ErrorMessage("Meal with ID:1 isn't found.", timestampService.getTime());
 //
+//        // 执行请求并比较结果
+//        MvcResult result = mvc.perform(MockMvcRequestBuilders.get(BASE_URL+"/1"))
+//                .andExpect(MockMvcResultMatchers.status().is5xxServerError())
+//                .andReturn();
 //
-//        ErrorMessage actual=new ErrorMessage("Meal with ID:1 isn't found.");
-//        String actualJson = objectMapper.writeValueAsString(actual);
-//        String exceptedJson = """
-//                {
-//                "message": "Meal with ID:1 isn't found.",
-//                "timestamp": "2024-01-01T00:00:00.0Z"
-//                    }""";
+//        String content = result.getResponse().getContentAsString();
+//        ErrorMessage actualErrorMessage = objectMapper.readValue(content, ErrorMessage.class);
 //
-//        verify(timestampService).getTime();
-//        assertEquals(actualJson,exceptedJson);
-//
-//
+//        // 将预期的 ErrorMessage 与实际的 ErrorMessage 进行比较
+//        assertEquals(errorMessage, actualErrorMessage);
 //    }
+
+
+    @Test
+    void errorMessage() throws JsonProcessingException {
+        TimestampService timestampService = mock(TimestampService.class);
+        LocalDateTime fixedTimestamp = LocalDateTime.of(2024,1,1,0,0,0,0);
+        when(timestampService.getTime()).thenReturn(fixedTimestamp);
+
+
+        ErrorMessage actual=new ErrorMessage("Meal with ID:1 isn't found.", timestampService.getTime());
+        String actualJson = objectMapper.writeValueAsString(actual);
+        String exceptedJson = """
+                {"message":"Meal with ID:1 isn't found.","timestamp":"2024-01-01T00:00:00"}""";
+
+        verify(timestampService).getTime();
+        assertEquals(actualJson,exceptedJson);
+
+
+    }
 }

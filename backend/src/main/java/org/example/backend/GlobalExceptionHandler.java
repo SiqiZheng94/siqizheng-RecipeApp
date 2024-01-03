@@ -8,7 +8,6 @@ import java.time.LocalDateTime;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
-    private TimestampService timestampService;
     @ExceptionHandler()
     @ResponseStatus()
     public ErrorMessage handleException (NotFoundException exception) {
