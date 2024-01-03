@@ -1,9 +1,11 @@
 package org.example.backend;
 
-import java.time.LocalDateTime;
+import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+@Service
 public class TimestampService {
-    public static LocalDateTime getTime(){
+    public LocalDateTime getTime(){
         return LocalDateTime.now();
     }
 
