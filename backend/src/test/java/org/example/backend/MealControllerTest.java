@@ -196,5 +196,15 @@ public class MealControllerTest {
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content().json(updatedMealAsJSON));
     }
-
+//    @Test
+//    void getById_returnErrorMessage_whenIdIs1 (){
+//        mvc.perform(MockMvcRequestBuilders.get(BASE_URL+"/1"))
+//                .andExpect(MockMvcResultMatchers.status().is5xxServerError())
+//                .andExpect(MockMvcResultMatchers.content().json("""
+//                    {
+//                        "message": "Meal with ID:65798940 isn't found.",
+//                        "timestamp": "2024-01-03T13:07:17.646123Z"
+//                    }
+//                """));
+//    }
 }
