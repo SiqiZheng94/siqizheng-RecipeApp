@@ -66,25 +66,38 @@ export default function RecipeEditPage(props: RecipeEditPageProps) {
                         {/* Loop through ingredients and measures */}
                         {Array.from({ length: 20 }).map((_, index) => {
                             const ingredientField = `strIngredient${index + 1}` as keyof Meal;
-                            const measureField = `strMeasure${index + 1}` as keyof Meal;
 
                             return (
                                 <React.Fragment key={index}>
                                     {selectedMeal && selectedMeal[ingredientField] && selectedMeal[ingredientField]?.trim() !== "" && (
                                         <li contentEditable={true} onBlur={(e) => handleEdit(ingredientField, e)} dangerouslySetInnerHTML={{ __html: selectedMeal[ingredientField] || "" }}></li>
                                     )}
-                                    {selectedMeal && selectedMeal[measureField] && selectedMeal[measureField]?.trim() !== "" && (
-                                        <li contentEditable={true} onBlur={(e) => handleEdit(measureField, e)} dangerouslySetInnerHTML={{ __html: selectedMeal[measureField] || "" }}></li>
-                                    )}
                                 </React.Fragment>
                             );
                         })}
                     </ul>
                 </div>
+                <div className="column">
+                        <ul>
+                            {/* Loop through ingredients and measures */}
+                            {Array.from({ length: 20 }).map((_, index) => {
+                                const measureField = `strMeasure${index + 1}` as keyof Meal;
+
+                                return (
+                                    <React.Fragment key={index}>
+                                        {selectedMeal && selectedMeal[measureField] && selectedMeal[measureField]?.trim() !== "" && (
+                                            <li contentEditable={true} onBlur={(e) => handleEdit(measureField, e)} dangerouslySetInnerHTML={{ __html: selectedMeal[measureField] || "" }}></li>
+                                        )}
+                                    </React.Fragment>
+                                );
+                            })}
+                        </ul>
+                </div>
             </div>
 
+
             {error && <p>{error}</p>}
-            <button className={"submit"} onClick={handleSubmit}>Submit</button>
+            <button className="submit" onClick={handleSubmit}>Submit</button>
         </div>
     );
 }

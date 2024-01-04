@@ -15,8 +15,9 @@ import RecipeDetailsPage from "./pages/RecipeDetailsPage.tsx";
 
 import FirstLetterMealPage from "./pages/FirstLetterMealPage.tsx";
 
-import AddRecipe from "./components/AddRecipe.tsx";
+import AddRecipe from "./pages/AddRecipe.tsx";
 import RecipeEditPage from "./pages/RecipeEditPage.tsx";
+
 
 
 

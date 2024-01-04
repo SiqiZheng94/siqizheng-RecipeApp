@@ -3,6 +3,7 @@
   flex-wrap: wrap;
   align-items: center;
   margin-bottom: 3vw;
+
   .title{
     color: var(--text-color);
     font-size: 2.5em;
@@ -17,20 +18,22 @@
     margin-bottom: 2.05em;
   }
   .col1{
-    width: 44%;
+    //flex:0 1 40rem;
+    flex:0 1 48%;
   }
   .col2{
-    width: 56%;
+    //flex:1;
+    flex:0 1 52%;
   }
 }
 
 .section.hero{
+  flex-wrap: wrap;
   .typography{
     padding-right: 1em;
   }
   .gallery{
     display: grid;
-    //grid-template-columns: repeat(3, 1fr);
     grid-template-columns: repeat(4, 1fr);
     gap: 1.75vw;
     .custom-image{
@@ -40,7 +43,6 @@
   }
 }
 .custom-image{
-  //background-color: var(--background-color);
   height: 0;
   width: 100%;
   position: relative;
@@ -54,4 +56,26 @@
   }
 }
 
+@media (max-width: 1200px) {
+  .section {
+    padding-right: 10vw;
+    padding-left: 10vw;
+  }
+  .section.hero .col1 {
+    flex: 0 1 100%;
+    margin-bottom: 4vw;
+  }
+  .section.hero .col2 {
+    flex: 0 1 100%;
+  }
+}
+@media (max-width: 720px) {
+  .section {
+    padding-right: 5vw;
+    padding-left: 5vw;
+  }
+  .section.hero .gallery {
+    grid-template-columns: repeat(2, 1fr); /* 在小屏幕上只显示两列 */
+  }
+}
 

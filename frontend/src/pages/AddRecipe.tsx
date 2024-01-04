@@ -41,25 +41,30 @@ const AddRecipes: React.FC = () => {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        try {
-            // Sende Daten an das Backend
-            const response = await axios.post("/api/meals/add", formData);
-            setFormData({
-                strMeal: '',
-                strCategory: '',
-                strMealThumb: '',
-                strInstructions: '',
-                strIngredient1: '',
-                strMeasure1: '',
-                strIngredient2: '',
-                strMeasure2: '',
-                strIngredient3: '',
-                strMeasure3: '',
-            })
-            console.log(response.data);
-        } catch (error) {
-            console.error('Fehler beim Senden der Daten:', error);
-        }
+        if(formData.strMeal===""){alert("Meal name can't be empty.")}
+        else if (formData.strCategory===""){alert("Meal category can't be empty.")}
+        else if (formData.strInstructions===""){alert("Recipe can't be empty.")}
+        else {
+            try {
+                // Sende Daten an das Backend
+                const response = await axios.post("/api/meals/add", formData);
+                alert("You have successfully created a new recipe!")
+                setFormData({
+                    strMeal: '',
+                    strCategory: '',
+                    strMealThumb: '',
+                    strInstructions: '',
+                    strIngredient1: '',
+                    strMeasure1: '',
+                    strIngredient2: '',
+                    strMeasure2: '',
+                    strIngredient3: '',
+                    strMeasure3: '',
+                })
+                console.log(response.data);
+            } catch (error) {
+                console.error('Fehler beim Senden der Daten:', error);
+            }}
     };
 
     return (
@@ -104,7 +109,7 @@ const AddRecipes: React.FC = () => {
                     value={formData.strIngredient1}
                     onChange={handleInputChange}
                     required
-                    placeholder={"Ingredient1 required..."}
+                    placeholder={"Ingredient1 optional..."}
                 />
                 <label htmlFor="strMeasure1">Measure 1:</label>
                 <input
@@ -114,7 +119,7 @@ const AddRecipes: React.FC = () => {
                     value={formData.strMeasure1}
                     onChange={handleInputChange}
                     required
-                    placeholder={"Measure1 required..."}
+                    placeholder={"Measure1 optional..."}
                 />
                 <label htmlFor="strIngredient2">Ingredient 2:</label>
                 <input
@@ -124,7 +129,7 @@ const AddRecipes: React.FC = () => {
                     value={formData.strIngredient2}
                     onChange={handleInputChange}
                     required
-                    placeholder={"Ingredient2 required..."}
+                    placeholder={"Ingredient2 optional..."}
                 />
                 <label htmlFor="strMeasure2">Measure 2:</label>
                 <input
@@ -134,7 +139,7 @@ const AddRecipes: React.FC = () => {
                     value={formData.strMeasure2}
                     onChange={handleInputChange}
                     required
-                    placeholder={"Measure2 required..."}
+                    placeholder={"Measure2 optional..."}
                 />
                 <label htmlFor="strIngredient3">Ingredient 3:</label>
                 <input
@@ -165,7 +170,7 @@ const AddRecipes: React.FC = () => {
                     placeholder={"Meal link Image optional..."}
                 />
                 <br/>
-                <button type="button" onClick={handleSubmit}>
+                <button  className="submit"  onClick={handleSubmit}>
                     Submit
                 </button>
             </form>
