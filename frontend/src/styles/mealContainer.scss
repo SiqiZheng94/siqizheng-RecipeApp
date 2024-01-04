@@ -13,7 +13,7 @@
   width: calc(25% - 20px);
   height: auto;
   margin: 10px;
-  padding: 10px;
+  padding: 5px;
   overflow: hidden;
   .two-buttons {
     display: flex;
@@ -34,5 +34,17 @@
   }
   .meal-introduction {
     font-size: 1.3vw;
+  }
+}
+@media (max-width: 1200px) {
+  .meal-card {
+    width: calc(33% - 20px);
+    padding: 4px;
+  }
+}
+@media (max-width: 720px) {
+  .meal-card {
+    width: calc(50% - 20px);
+    margin: 7px;
   }
 }
