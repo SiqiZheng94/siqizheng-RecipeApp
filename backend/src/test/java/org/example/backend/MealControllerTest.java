@@ -19,7 +19,7 @@ import java.nio.charset.Charset;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
@@ -38,6 +38,7 @@ public class MealControllerTest {
     private MealController mealController;
     @Autowired
     ObjectMapper objectMapper;
+
 
     @Test
     void getAllMeals_shouldReturnEmptyList_WhenCalledInitially() throws Exception {
@@ -206,11 +207,12 @@ public class MealControllerTest {
     // mock the TimestampService to return a fixed timestamp in the test
 //    @Test
 //    void getById_returnErrorMessage_whenIdIs1 () throws Exception {
-//        ErrorMessage errorMessage = mock(ErrorMessage.class);
 //        LocalDateTime fixedTimestamp = LocalDateTime.of(2024,1,1,0,0,0,0);
 //
-//        when(errorMessage.timestamp()).thenReturn(fixedTimestamp);
-//        //verify(errorMessage).message();
+//        TimestampService timestampService = mock(TimestampService.class);
+//        when(timestampService.getTime()).thenReturn(fixedTimestamp);
+//
+//        //verify(timestampService).getTime();
 //        mvc.perform(MockMvcRequestBuilders.get(BASE_URL+"/1"))
 //                .andExpect(MockMvcResultMatchers.status().is5xxServerError())
 //                .andExpect(MockMvcResultMatchers.content().json("""
@@ -218,30 +220,6 @@ public class MealControllerTest {
 //                """));
 //
 //    }
-//    @Test
-//    void getById_returnErrorMessage_whenIdIs2 () throws Exception {
-//        // 创建 TimestampService 的模拟对象
-//        TimestampService timestampService = mock(TimestampService.class);
-//        ErrorMessage mockErrorMessage = mock(ErrorMessage.class);
-//        // 配置模拟对象以返回固定的时间戳
-//        LocalDateTime fixedTimestamp = LocalDateTime.of(2024, 1, 1, 0, 0, 0, 0);
-//        when(timestampService.getTime()).thenReturn(fixedTimestamp);
-//        when(mockErrorMessage.timestamp()).thenReturn(fixedTimestamp);
-//        // 创建 ErrorMessage 实例时使用模拟的时间戳
-//        ErrorMessage errorMessage = new ErrorMessage("Meal with ID:1 isn't found.", timestampService.getTime());
-//
-//        // 执行请求并比较结果
-//        MvcResult result = mvc.perform(MockMvcRequestBuilders.get(BASE_URL+"/1"))
-//                .andExpect(MockMvcResultMatchers.status().is5xxServerError())
-//                .andReturn();
-//
-//        String content = result.getResponse().getContentAsString();
-//        ErrorMessage actualErrorMessage = objectMapper.readValue(content, ErrorMessage.class);
-//
-//        // 将预期的 ErrorMessage 与实际的 ErrorMessage 进行比较
-//        assertEquals(errorMessage, actualErrorMessage);
-//    }
-
 
     @Test
     void errorMessage() throws JsonProcessingException {
