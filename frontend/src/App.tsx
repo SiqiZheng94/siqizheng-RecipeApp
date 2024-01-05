@@ -64,8 +64,8 @@ function App() {
                             <FirstLetterMealPage/>}/>
                     </Routes>
                 </div>
-            </main>
             <MealsByFirstLetter/>
+            </main>
             <footer>
                 <div className={"container"}>
                     <Footer/>

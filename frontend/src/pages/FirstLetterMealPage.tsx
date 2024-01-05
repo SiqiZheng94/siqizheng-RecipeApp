@@ -11,6 +11,7 @@ export default function FirstLetterMealPage(){
 
         const fetchData = ()=>
             axios.get("/api/meals/letter/"+pathLetter)
+
                 .then(response=> {
                     setSelectedMeals(response.data)
                     setIsLoading(false)
@@ -37,17 +38,17 @@ export default function FirstLetterMealPage(){
                                                  alt={meal.strMeal}
                                             />
                                         )}
-                                        {/*<div className={"two-buttons"}>*/}
-                                        {/*    <button><span>Edit</span></button>*/}
-                                        {/*    <button><span>Delete</span></button>*/}
-                                        {/*</div>*/}
                                         <p className={"meal-introduction"}>{meal.strMeal}</p>
                                     </div>
                                 )
                             )}
                         </div>
                         :
-                        <div>oops, there are no recipes with the first letter {pathLetter}.</div>)
+                        <div className={"oops"}>
+                            <img src="https://cdn.pixabay.com/photo/2016/06/03/08/18/oops-1432954_960_720.png"/>
+                            <p>
+                                There are no recipes with the first letter {pathLetter}.
+                            </p></div>)
             }
         </>
 

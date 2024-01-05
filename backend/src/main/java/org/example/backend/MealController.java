@@ -43,7 +43,7 @@ public class MealController {
 //    }
 
     @GetMapping("/letter/{letter}")
-    public List<MealRecord> getMealsByFirstLetter(@PathVariable String letter) throws NotFoundException {
+    public List<MealRecord> getMealsByFirstLetter(@PathVariable String letter) {
         return service.getMealsByFirstLetter(letter);
     }
     @GetMapping("/area/{area}")

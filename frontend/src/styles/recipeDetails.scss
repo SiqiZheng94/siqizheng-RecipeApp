@@ -2,6 +2,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  h1 {
+    font-size: 2.6rem;
+  }
   img {
     width: 70%;
     margin: 3vw 0 1vw 0;
@@ -26,16 +29,23 @@
     li {
       border: 1px solid #ccc;
       padding: 10px;
-      height: 3vw;
-      width: 20vw
+      //height: 3vw;
+      width: 20rem;
     }
   }
-.submit {
-  background-color: red;
-  width: 8vw;
-
 }
+@media (max-width: 720px) {
+  .recipe-details {
+    h1 {
+      font-size: 1.5rem;
+    }
+    .column {
+      li {
+        width: 10rem;
+        height: 3rem;
+      }
+    }
+  }
 }
-
 
 
