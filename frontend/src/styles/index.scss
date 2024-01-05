@@ -130,18 +130,31 @@ div {
 
 .management {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     padding: 0 2vw 0 2vw;
     button {
-        width: 5vw;
-        height: 2vw;
+        width: 5rem;
+        height: 1.8rem;
         margin: 0 .3vw 0 .3vw;
         padding: 0 .3vw 0 .3vw;
         background-color: red;
         span {
-            font-size: 1vw;
+            font-size: 1rem;
+        }
+    }
+}
+@media (max-width: 720px) {
+    .management {
+        button {
+            padding: 0 0.2rem;
+            width: auto;
+            height: 1.3rem;
+            span {
+                font-size: .7rem;
+            }
         }
     }
 }
