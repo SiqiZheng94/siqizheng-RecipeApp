@@ -38,7 +38,7 @@
 
 .meal-letters {
   //margin: 20px;
-  font-size: 1.3vw;
+  font-size: 1rem;
   font-weight: 600;
   margin-top: 2vw;
 }
@@ -60,5 +60,10 @@ img {
     img {
       height: 13rem;
     }
+  }
+  .meal-letters {
+    font-size: .8rem;
+    font-weight: 550;
+    margin-top: 2vw;
   }
 }

@@ -61,21 +61,43 @@ main {
         position: relative;
     }
 }
-footer {
+//footer {
+//    background-color: #333;
+//    height: 90px;
+//    color: #fff;
+//    text-align: center;
+//    bottom: 0;
+//    left: 0;
+//    width: 100%;
+//    .footer {
+//        text-align: center;
+//    }
+//}
+.footer{
+    //background-color: #0f0f0f;
     background-color: #333;
-    height: 90px;
     color: #fff;
-    text-align: center;
-    //position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    .footer {
-        text-align: center;
-        padding: 27px;
+    padding-block: 3em;
+    display: grid;
+
+    grid-template-columns: 1.5fr 1fr 0.8fr;
+    grid-gap: 1em;
+    .footer-section{
+        a {
+            color: #fff;
+        }
+        p{
+            opacity: .9;
+            margin-bottom: .5em;
+        }
+        p.title{
+            opacity: 1;
+            font-size: 1.1em;
+            font-weight: bold;
+            margin-bottom: 1em;
+        }
     }
 }
-
 
 
 @function getAnimationDuration($duration: number) {
@@ -112,8 +134,9 @@ img{
 }
 
 .container{
-    // padding-inline: 8rem;
-   padding-inline: 8vw;
+    padding-inline: 8vw;
+    padding-top: 3vw;
+    padding-bottom: 2vw;
 }
 
 div {
@@ -125,13 +148,6 @@ div {
     }
 }
 
-.browse-meals {
-    margin-bottom: 7vw;
-    //position: fixed;
-    //bottom: 50px;
-    //left: 0;
-    //right: 0;
-}
 
 .management {
     display: flex;
@@ -152,7 +168,20 @@ div {
     }
 }
 
+html, body {
+    height: 100%;
+    margin: 0;
+}
+.wrapper {
+    min-height: 100%;
 
+    /* height of footer*/
+    margin-bottom: -120px;
+}
+.ff,
+.push {
+    height: 130px;
+}
 
 @media (max-width: 720px) {
     .management {
@@ -164,5 +193,41 @@ div {
                 font-size: .7rem;
             }
         }
+    }
+
+
+    .footer{
+        padding-top: 0;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        .f1{
+            flex:0 1 100%;
+        }
+        .f2 {
+            flex:0 1 60%;
+        }
+        .f3 {
+            flex:0 1 30%;
+        }
+        padding-block: 3em;
+        grid-gap: 1em;
+        .footer-section{
+            p{
+                opacity: .8;
+                margin-bottom: .5em;
+                font-size: .9em;
+            }
+            p.title{
+                opacity: .9;
+                font-size: 1em;
+                font-weight: bold;
+                margin-bottom: 1em;
+            }
+        }
+    }
+    .container{
+        padding-top: 1.5vw;
+        padding-bottom: 1vw;
     }
 }
