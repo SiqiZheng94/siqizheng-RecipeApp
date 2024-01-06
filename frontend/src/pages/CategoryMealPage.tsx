@@ -26,7 +26,7 @@ export default function CategoryMealPage(props: Readonly<CategoryMealPageProps>)
 
     return (
         <>
-            <div><h1>{pathCategory}</h1></div>
+            <div className={"meal-name"}><h1>{pathCategory}</h1></div>
                 <div className={"meal-container"}>
                     {filteredMeals.map((meal: Meal) => (
                             <div className={"meal-card"} key={meal.idMeal} onClick={()=>navigate("/recipe/"+meal._id)}>
