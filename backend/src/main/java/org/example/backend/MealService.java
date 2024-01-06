@@ -38,11 +38,11 @@ public class MealService {
 //    }
 
 
-    public List<MealRecord> getMealsByFirstLetter(String letter) throws NotFoundException {
+    public List<MealRecord> getMealsByFirstLetter(String letter) {
         List<MealRecord> allMeals = repo.findAllByStrMealStartingWithIgnoreCase(letter);
-        if (allMeals.isEmpty()){
-            throw new NotFoundException("There isn't any mal with first letter: "+letter);
-        }
+//        if (allMeals.isEmpty()){
+//            throw new NotFoundException("There isn't any mal with first letter: "+letter);
+//        }
         return allMeals;
     }
 

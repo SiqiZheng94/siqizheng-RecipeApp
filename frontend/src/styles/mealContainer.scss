@@ -21,11 +21,11 @@
     margin: 0.5vw 0 0 0;
   }
   button {
-    margin: 0 .3vw 0 .3vw;
-    padding: 0 .3vw 0 .3vw;
+    margin: 0 .3rem 0 .3rem;
+    padding: 0 .3rem 0 .3rem;
     background-color: lightsalmon;
     span {
-      font-size: 1vw;
+      font-size: .8rem;
     }
   }
   .meal-picture {
@@ -33,18 +33,29 @@
     border: none;
   }
   .meal-introduction {
-    font-size: 1.3vw;
+    font-size: 1.2rem;
   }
 }
 @media (max-width: 1200px) {
   .meal-card {
     width: calc(33% - 20px);
     padding: 4px;
+    .meal-introduction {
+      font-size: 1.1rem;
+    }
   }
 }
 @media (max-width: 720px) {
   .meal-card {
     width: calc(50% - 20px);
     margin: 7px;
+    button {
+      span {
+        font-size: .7rem;
+      }
+    }
+    .meal-introduction {
+      font-size: .8rem;
+    }
   }
 }

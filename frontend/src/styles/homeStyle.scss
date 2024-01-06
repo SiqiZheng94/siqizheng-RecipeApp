@@ -75,7 +75,7 @@
     padding-left: 5vw;
   }
   .section.hero .gallery {
-    grid-template-columns: repeat(2, 1fr); /* 在小屏幕上只显示两列 */
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 

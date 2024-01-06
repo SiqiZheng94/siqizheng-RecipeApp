@@ -38,7 +38,7 @@
 
 .meal-letters {
   //margin: 20px;
-  font-size: 1.3vw;
+  font-size: 1rem;
   font-weight: 600;
   margin-top: 2vw;
 }
@@ -46,8 +46,24 @@
 h2, p, {
   padding-top: 10px;
 }
-
+.oops {
+  img {
+    height: 27rem;
+  }
+}
 img {
-  border: 5px solid burlywood;
+  //border: 5px solid burlywood;
   border-radius: 15px;
+}
+@media (max-width: 720px) {
+  .oops {
+    img {
+      height: 13rem;
+    }
+  }
+  .meal-letters {
+    font-size: .8rem;
+    font-weight: 550;
+    margin-top: 2vw;
+  }
 }
