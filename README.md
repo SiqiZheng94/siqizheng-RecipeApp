@@ -1,6 +1,6 @@
 ## Modernes Webanwendungsprojekt mit Vite, React und Spring Boot (Gruppenprojekt)
 
-Unser aktuelles Gruppenprojekt vereint modernste **Frontend-** und **Backend-Technologien**, um eine leistungsstarke und skalierbare Webanwendung zu schaffen. Die Frontend-Entwicklung erfolgt unter Verwendung von Vite, Node, React und TypeScript, während das Backend mit Spring Initializr, Java, Maven, JDK 21 und der Spring-Technologie-Stack entwickelt wird.
+Unser Gruppenprojekt vereint modernste **Frontend-** und **Backend-Technologien**, um eine leistungsstarke und skalierbare Webanwendung zu schaffen. Die Frontend-Entwicklung erfolgt unter Verwendung von Vite, Node, React und TypeScript, während das Backend mit Spring Initializr, Java, Maven, JDK 21 und der Spring-Technologie-Stack entwickelt wird.
 
 ### 1. Frontend-Technologien: 💻
 
