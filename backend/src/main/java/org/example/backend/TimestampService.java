@@ -8,5 +8,4 @@ public class TimestampService {
     public LocalDateTime getTime(){
         return LocalDateTime.now();
     }
-
 }

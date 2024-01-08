@@ -204,39 +204,20 @@ public class MealControllerTest {
     }
 
 
-    // mock the TimestampService to return a fixed timestamp in the test
-//    @Test
-//    void getById_returnErrorMessage_whenIdIs1 () throws Exception {
-//        LocalDateTime fixedTimestamp = LocalDateTime.of(2024,1,1,0,0,0,0);
-//
-//        TimestampService timestampService = mock(TimestampService.class);
-//        when(timestampService.getTime()).thenReturn(fixedTimestamp);
-//
-//        //verify(timestampService).getTime();
-//        mvc.perform(MockMvcRequestBuilders.get(BASE_URL+"/1"))
-//                .andExpect(MockMvcResultMatchers.status().is5xxServerError())
-//                .andExpect(MockMvcResultMatchers.content().json("""
-//                    {"message":"Meal with ID:1 isn't found.","timestamp":"2024-01-01T00:00:00"}
-//                """));
-//
-//    }
 
-
+    // Integrationstest
+    // In einem Integrationstest versucht man aber oft auf das mocken zu verzichten, da man einen black-box-test will.
+    // Das hat aber zufolge das wir nicht genau wissen können zu welchem Zeitpunkt das ganze passiert und können so mit nur prüfen,
+    // das ein Zeitpunkt gesetzt ist und dieser z.B: in den letzten 2 Sekunden war.
     @Test
-    void errorMessage() throws JsonProcessingException {
-        TimestampService timestampService = mock(TimestampService.class);
-        LocalDateTime fixedTimestamp = LocalDateTime.of(2024,1,1,0,0,0,0);
-        when(timestampService.getTime()).thenReturn(fixedTimestamp);
+    void getById_returnErrorMessage_whenIdIs1 () throws Exception {
+        LocalDateTime fixedTimestamp = LocalDateTime.now();
 
-
-        ErrorMessage actual=new ErrorMessage("Meal with ID:1 isn't found.", timestampService.getTime());
-        String actualJson = objectMapper.writeValueAsString(actual);
-        String exceptedJson = """
-                {"message":"Meal with ID:1 isn't found.","timestamp":"2024-01-01T00:00:00"}""";
-
-        verify(timestampService).getTime();
-        assertEquals(actualJson,exceptedJson);
-
-
+        MvcResult result = mvc.perform(MockMvcRequestBuilders.get(BASE_URL+"/1"))
+                .andExpect(status().is5xxServerError())
+                .andReturn();
+        ErrorMessage actualError = objectMapper.readValue(result.getResponse().getContentAsString(), ErrorMessage.class);
+        assertNotNull(actualError);
+        assertTrue(actualError.timestamp().isAfter(fixedTimestamp));
     }
 }
