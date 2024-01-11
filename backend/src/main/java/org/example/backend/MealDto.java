@@ -54,5 +54,4 @@ public class MealDto {
     private String strMeasure18;
     private String strMeasure19;
     private String strMeasure20;
-
 }
