@@ -18,7 +18,13 @@ const Sidebar: React.FC<SidebarProps> = ({ links, close }) => {
     const location = useLocation();
 
     return (
-        <div className="sidebar" onClick={close}>
+        <div
+            className="sidebar"
+            onClick={close}
+            onKeyDown={() => {}}
+            role="button"
+            tabIndex={0}
+        >
             {links.map((link) => (
                 <Link
                     to={link.path}
