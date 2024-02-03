@@ -2,7 +2,7 @@ import {useState} from "react";
 import {faHome, faList, faCog } from "@fortawesome/free-solid-svg-icons";
 import {Link , useLocation} from "react-router-dom";
 import Sidebar from "./Sidebar.tsx";
-export default function NavBar() {
+export default function NavBar(this: any) {
 
     const [showSidebar, setShowSidebar] = useState(false);
     const location = useLocation();
@@ -37,8 +37,13 @@ export default function NavBar() {
                         ))
                     }
                 </div>
-                <div onClick={() => setShowSidebar(true)}
-                     className={showSidebar ? "sidebar-btn active" : "sidebar-btn"}>
+                <div
+                    onClick={() => setShowSidebar(true)}
+                    onKeyDown={() => {}}
+                    role="button"
+                    tabIndex={0}
+                    className={showSidebar ? "sidebar-btn active" : "sidebar-btn"}
+                >
                     <div className={"bar"}></div>
                     <div className={"bar"}></div>
                     <div className={"bar"}></div>
