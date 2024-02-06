@@ -1,4 +1,4 @@
-package org.example.backend;
+package org.example.backend.exception;
 
 public class NotFoundException extends Exception {
     public NotFoundException() {

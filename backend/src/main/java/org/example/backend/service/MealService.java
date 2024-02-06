@@ -1,5 +1,11 @@
-package org.example.backend;
+package org.example.backend.service;
 import lombok.RequiredArgsConstructor;
+import org.example.backend.dto.MealDto;
+import org.example.backend.entity.MealCategory;
+import org.example.backend.entity.MealRecord;
+import org.example.backend.exception.NotFoundException;
+import org.example.backend.repo.MealCategoryRepo;
+import org.example.backend.repo.MealRepo;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

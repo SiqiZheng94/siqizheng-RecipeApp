@@ -1,4 +1,4 @@
-package org.example.backend;
+package org.example.backend.entity;
 
 import lombok.Data;
 import lombok.Getter;

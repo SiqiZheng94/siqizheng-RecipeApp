@@ -1,6 +1,12 @@
-package org.example.backend;
+package org.example.backend.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.example.backend.dto.MealDto;
+import org.example.backend.entity.MealCategory;
+import org.example.backend.entity.MealRecord;
+import org.example.backend.exception.NotFoundException;
+import org.example.backend.service.IdService;
+import org.example.backend.service.MealService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
