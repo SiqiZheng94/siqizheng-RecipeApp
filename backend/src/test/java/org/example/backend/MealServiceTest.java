@@ -2,6 +2,7 @@ package org.example.backend;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.example.backend.dto.MealDto;
 import org.example.backend.entity.MealCategory;
 import org.example.backend.entity.MealRecord;
 import org.example.backend.exception.ErrorMessage;
@@ -64,7 +65,7 @@ class MealServiceTest {
     }
 
     @Test
-    void getMealsByNameNotFound_getMealsByCategoryNotFound(){
+    void notFound_throwException(){
         //GIVEN
         MealRecord mealRecord = new MealRecord(
                 "658300534635ad5e48abb8b8",
@@ -136,6 +137,15 @@ class MealServiceTest {
             assertTrue(actual.isEmpty());
         } catch (NotFoundException e) {
             assertEquals("The category you are searching for is not existing.", e.getMessage());
+        }
+
+        //WHEN
+        try{
+            List<MealRecord> actual = mealService.getMealsByFirstLetter("A");
+            //THEN
+            assertTrue(actual.isEmpty());
+        } catch (NotFoundException e) {
+            assertEquals("There isn't any mal with first letter: A", e.getMessage());
         }
     }
 }
