@@ -50,18 +50,26 @@ function App() {
                     <div className={"container main"}>
                         <Routes>
                             <Route path="/" element={<HomePage/>}/>
-                            <Route path="/meals" element={<AllMealPage meals={meals} getMeals={fetchData}/>}/>
-
+                            <Route path="/meals" element={
+                                isLoading ? (
+                                        <div className="loading-animation">Loading...</div>
+                                    ) :
+                                <AllMealPage meals={meals} getMeals={fetchData}/>}/>
                             <Route path="/add-recipe" element={<AddRecipe/>}/>
-
                             <Route path="/category/:category" element={
-                                isLoading ? (<p>Loading...</p>) :
+                                isLoading ? (
+                                        <div className="loading-animation">Loading...</div>
+                                    ) :
                                     <CategoryMealPage meals={meals}/>}/>
                             <Route path="/recipe/:id" element={
-                                isLoading ? (<p>Loading...</p>):
+                                isLoading ? (
+                                        <div className="loading-animation">Loading...</div>
+                                    ) :
                                     <RecipeDetailsPage meals={meals} getMeals={fetchData}/>}/>
                             <Route path="/recipe/edit/:id" element={
-                                isLoading ? (<p>Loading...</p>):
+                                isLoading ? (
+                                        <div className="loading-animation">Loading...</div>
+                                    ) :
                                     <RecipeEditPage meals={meals} getData={fetchData}/>}/>
                             <Route path="/meals/letter/:letter" element={
                                 <FirstLetterMealPage/>}/>

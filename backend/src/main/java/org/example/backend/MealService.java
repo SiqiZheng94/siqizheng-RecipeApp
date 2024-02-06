@@ -17,11 +17,7 @@ public class MealService {
         return repo.findAll();
     }
 
-    public MealRecord getRandomMeal(){
-        int randomIndex=(int)(Math.random()* repo.count());
-        return repo.findAll().get(randomIndex);
 
-    }
 
     public MealRecord getMealById(String id) throws NotFoundException {
 
@@ -30,19 +26,11 @@ public class MealService {
     }
 
 
-//    public MealRecord getRandomMealByCategory(String category) throws NotFoundException{
-//        List<MealRecord> meals = repo.findAllByStrCategoryIgnoreCase(category)
-//                .orElseThrow(()->new NotFoundException("No such category found"));
-//        return meals.get((int) (Math.random() * meals.size()));
-//
-//    }
-
-
-    public List<MealRecord> getMealsByFirstLetter(String letter) {
+    public List<MealRecord> getMealsByFirstLetter(String letter) throws NotFoundException {
         List<MealRecord> allMeals = repo.findAllByStrMealStartingWithIgnoreCase(letter);
-//        if (allMeals.isEmpty()){
-//            throw new NotFoundException("There isn't any mal with first letter: "+letter);
-//        }
+        if (allMeals.isEmpty()){
+            throw new NotFoundException("There isn't any mal with first letter: "+letter);
+        }
         return allMeals;
     }
 
@@ -54,23 +42,6 @@ public class MealService {
         return allMeals;
     }
 
-
-    public List <MealRecord> getMealsByArea(String area) throws NotFoundException{
-        List<MealRecord> allMeals = repo.findAllByStrAreaIgnoreCase(area);
-        if (allMeals.isEmpty()){
-            throw new NotFoundException("This area isn't found.");
-        }
-        return allMeals;
-    }
-
-
-    public List <MealRecord> getMealsByIngredient1(String ingredient) throws NotFoundException {
-        List<MealRecord> allMeals = repo.findAllByStrIngredient1IgnoreCase(ingredient);
-        if (allMeals.isEmpty()){
-            throw new NotFoundException("There isn't any meal with ingredient: "+ingredient);
-        }
-        return allMeals;
-    }
 
     public MealRecord updateMeal( MealRecord mealRecord){
         return repo.save(mealRecord);

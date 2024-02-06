@@ -30,12 +30,10 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 @AutoConfigureMockMvc
 @DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
-public class MealControllerTest {
+class MealControllerTest {
     private final String BASE_URL = "/api/meals";
     @Autowired
     private MockMvc mvc;
-    @Autowired
-    private MealController mealController;
     @Autowired
     ObjectMapper objectMapper;
 

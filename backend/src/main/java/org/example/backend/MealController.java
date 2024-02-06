@@ -17,11 +17,6 @@ public class MealController {
         return service.getAllMeals();
     }
 
-    @GetMapping("/random")
-    public MealRecord getRandomMeal() throws NotFoundException {
-        return service.getRandomMeal();
-    }
-
     @GetMapping("/{id}")
     public MealRecord getMealById(@PathVariable String id) throws NotFoundException {
         return service.getMealById(id);
@@ -37,23 +32,13 @@ public class MealController {
         return service.getMealsByCategory(category);
     }
 
-//    @GetMapping("category/{category}/random")
-//    public MealRecord getRandomMealByCategory(@PathVariable String category) throws NotFoundException{
-//        return service.getRandomMealByCategory(category);
-//    }
+
 
     @GetMapping("/letter/{letter}")
-    public List<MealRecord> getMealsByFirstLetter(@PathVariable String letter) {
+    public List<MealRecord> getMealsByFirstLetter(@PathVariable String letter) throws NotFoundException {
         return service.getMealsByFirstLetter(letter);
     }
-    @GetMapping("/area/{area}")
-    public List<MealRecord>getMealsByArea(@PathVariable String area) throws NotFoundException{
-        return service.getMealsByArea(area);
-    }
-    @GetMapping("/ingredient/{ingredient}")
-    public List<MealRecord>getMealsByIngredient(@PathVariable String ingredient) throws NotFoundException{
-        return service.getMealsByIngredient1(ingredient);
-    }
+
 
     @GetMapping("/categorylist")
     public List <MealCategory> getAllCategories(){
