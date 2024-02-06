@@ -10,7 +10,7 @@
 
 :root{
     --background-color: #fff;
-    --background-light: beige;
+    --background-light: #F3F4F5;
     --shadow-color: rgba(0,0,0,0.2);
     --primary-color: rgb(255, 0, 86);
     --text-color: #0A0A0A;
@@ -28,7 +28,6 @@
 body {
     width: 100%;
     height: 100%;
-    //font-size: 62.5%;
     font-family: 'Roboto', sans-serif;
     padding-top: 20px;
     background-color: var(--background-light);
@@ -42,9 +41,6 @@ body {
 
 main {
     flex-grow: 1;
-    //padding: 45px;
-    //padding-left: 45px;
-    //padding-right: 45px;
     padding-top: 70px;
 
 
@@ -61,20 +57,8 @@ main {
         position: relative;
     }
 }
-//footer {
-//    background-color: #333;
-//    height: 90px;
-//    color: #fff;
-//    text-align: center;
-//    bottom: 0;
-//    left: 0;
-//    width: 100%;
-//    .footer {
-//        text-align: center;
-//    }
-//}
+
 .footer{
-    //background-color: #0f0f0f;
     background-color: #333;
     color: #fff;
     padding-block: 3em;
@@ -135,8 +119,6 @@ img{
 
 .container{
     padding-inline: 8vw;
-    padding-top: 3vw;
-    padding-bottom: 2vw;
 }
 
 div {
@@ -245,4 +227,9 @@ html, body {
     left: 0;
     right: 0;
     bottom: 0;
+}
+.browse-meals{
+    font-size: 1em;
+    font-weight: bold;
+    color: var(--text-light);
 }

@@ -10,7 +10,7 @@ const MealsByFirstLetter: React.FC = () => {
             <div className={"meal-letters"}>
                     {letters.map((letter) => (
                         <Link to={`/meals/letter/${letter}`} key={letter}>
-                             {letter}/
+                              {letter}/
                         </Link>
                     ))}
             </div>
