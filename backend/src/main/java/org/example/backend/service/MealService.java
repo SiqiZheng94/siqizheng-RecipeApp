@@ -59,7 +59,6 @@ public class MealService {
 
     public List <MealCategory> getAllCategories(){
         return categoryRepo.findAll();
-
     }
 
     public List<MealRecord> getMealsByName(String name) throws NotFoundException {
