@@ -1,8 +1,10 @@
 
 package org.example.backend;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.example.backend.dto.MealDto;
+import org.example.backend.entity.MealRecord;
+import org.example.backend.exception.ErrorMessage;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -20,7 +22,6 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -42,6 +43,21 @@ class MealControllerTest {
     void getAllMeals_shouldReturnEmptyList_WhenCalledInitially() throws Exception {
         mvc.perform(
                         MockMvcRequestBuilders.get(BASE_URL)
+                )
+                .andExpect(
+                        status()
+                                .isOk()
+                )
+                .andExpect(
+                        content()
+                                .json("[]")
+                );
+    }
+
+    @Test
+    void getAllCategories_shouldReturnEmptyList_WhenCalledInitially() throws Exception {
+        mvc.perform(
+                        MockMvcRequestBuilders.get(BASE_URL + "/categorylist")
                 )
                 .andExpect(
                         status()
@@ -126,6 +142,13 @@ class MealControllerTest {
                 .andExpect(content().json(mealAsJson));
 
         //WHEN
+        mvc.perform(MockMvcRequestBuilders.get(BASE_URL + "/name/" + mealInDB.strMeal()))
+
+                //THEN
+                .andExpect(status().isOk())
+                .andExpect(content().json(String.valueOf(List.of(mealAsJson))));
+
+        //WHEN
         mvc.perform(MockMvcRequestBuilders.get(BASE_URL + "/category/" + mealInDB.strCategory()))
 
                 //THEN
@@ -199,6 +222,12 @@ class MealControllerTest {
                 .content(updatedMealAsJSON))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content().json(updatedMealAsJSON));
+
+        //WHEN
+        mvc.perform(MockMvcRequestBuilders.delete(BASE_URL + "/delete/" + mealInDB._id()))
+
+                //THEN
+                .andExpect(status().isOk());
     }
 
 

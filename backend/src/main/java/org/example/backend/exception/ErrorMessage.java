@@ -1,6 +1,7 @@
-package org.example.backend;
+package org.example.backend.exception;
 
-import java.time.Instant;
+import org.example.backend.service.TimestampService;
+
 import java.time.LocalDateTime;
 
 public record ErrorMessage(String message, LocalDateTime timestamp) {

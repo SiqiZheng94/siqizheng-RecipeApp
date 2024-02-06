@@ -1,8 +1,8 @@
-package org.example.backend;
+package org.example.backend.repo;
 
+import org.example.backend.entity.MealRecord;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import java.util.List;
-import java.util.Optional;
 
 public interface MealRepo extends MongoRepository<MealRecord, String> {
     List<MealRecord> findAllByStrTagsContainingIgnoreCase(String tag);

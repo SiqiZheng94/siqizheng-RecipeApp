@@ -27,7 +27,9 @@ export default function FirstLetterMealPage(){
     return(
         <>
             {
-                isLoading ? <p>Loading...</p> : (
+                isLoading ? (
+                    <div className="loading-animation">Loading...</div>
+                ) : (
                     selectedMeals.length!=0 ?
                         <div className={"meal-container"}>
                             {selectedMeals.map((meal: Meal) => (
