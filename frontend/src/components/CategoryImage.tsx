@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 export default function CategoryImage() {
     const navigate = useNavigate();
     const [categories, setCategories] = useState<Category[]>([]);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState<boolean>(true);
 
     const fetchCategoryData = () => {
         axios

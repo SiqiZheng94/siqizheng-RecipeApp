@@ -19,21 +19,15 @@ export default function AllMealPage(props: MealPageProps) {
     }
 
     function deleteThisItem(id: string) {
-        // Neue Liste ohne das gelöschte Element erstellen
         const updatedMeals = meals.filter(meal => meal._id !== id);
 
-        // Setzen Sie den lokalen Zustand auf die aktualisierte Liste
         setMeals(updatedMeals);
 
-        // Löschanforderung an den Server senden
         axios.delete("api/meals/delete/" + id)
             .then(() => {
-                // Nach erfolgreicher Löschung, wenn nötig, zusätzliche Aktionen durchführen
-                // Hier müssen Sie möglicherweise nichts tun, da der lokale Zustand bereits aktualisiert wurde
             })
             .catch(error => {
                 console.error('Error deleting the item:', error);
-                // Im Fehlerfall könnten Sie den Benutzer benachrichtigen und/oder das gelöschte Element wiederherstellen
             });
     }
 
