@@ -38,13 +38,10 @@ public class MealController {
         return service.getMealsByCategory(category);
     }
 
-
-
     @GetMapping("/letter/{letter}")
     public List<MealRecord> getMealsByFirstLetter(@PathVariable String letter) throws NotFoundException {
         return service.getMealsByFirstLetter(letter);
     }
-
 
     @GetMapping("/categorylist")
     public List <MealCategory> getAllCategories(){
