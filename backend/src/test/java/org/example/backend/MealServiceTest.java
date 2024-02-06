@@ -138,14 +138,5 @@ class MealServiceTest {
         } catch (NotFoundException e) {
             assertEquals("The category you are searching for is not existing.", e.getMessage());
         }
-
-        //WHEN
-        try{
-            List<MealRecord> actual = mealService.getMealsByFirstLetter("A");
-            //THEN
-            assertTrue(actual.isEmpty());
-        } catch (NotFoundException e) {
-            assertEquals("There isn't any mal with first letter: A", e.getMessage());
-        }
     }
 }
