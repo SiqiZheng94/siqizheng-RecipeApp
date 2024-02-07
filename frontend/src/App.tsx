@@ -20,7 +20,6 @@ import RecipeEditPage from "./pages/RecipeEditPage.tsx";
 
 
 
-
 function App() {
     const [meals, setMeals] = useState<Meal[]>([])
     const [isLoading, setIsLoading] = useState<boolean>(true)
