@@ -24,4 +24,12 @@ Zur Verbesserung der Benutzererfahrung und des Designs verwenden wir außerdem:
 - **Spring Web und Spring Data MongoDB:** Für die Entwicklung von RESTful Webdiensten und die Integration mit der MongoDB-Datenbank.
 - **Spring Reactive Web:** Für die Erstellung reaktiver Endpunkte, die die Anforderungen moderner Webanwendungen erfüllen.
 
-Die Daten werden effizient in einer **MongoDB-Datenbank** gespeichert, die optimale Flexibilität und Skalierbarkeit für die Verwaltung unserer Anwendungsdaten bietet.
+## Getting Started
+To set up the project locally, follow these steps:
+
+1. Clone the repository.
+2. Set up the MongoDB database.
+3. Configure the backend environment.
+4. Install the frontend dependencies and run the React application.
+
+You can also go to https://best-recipe-app-siqizheng.onrender.com and try it yourself. Getting the server up and running will take a few minutes.
